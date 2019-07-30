@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "widget-echarts": [
+        "dist/widget-echarts"
+      ],
+      "widget-echarts/*": [
+        "dist/widget-echarts/*"
+      ]
+    }
   }
 }
