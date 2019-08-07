@@ -8,7 +8,11 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:echarts":"ng build widget-echarts"
+    "build:echarts": "ng build widget-echarts",
+    "ngc:echarts": "ngc -p ./projects/widget-echarts/tsconfig.ngc.json",
+    "rollup": "rollup --config rollup.config.js",
+    "min":"uglifyjs ./dist/widget-echarts.umd.min.js",
+    "terser":"terser widget-echarts.umd.js -c -m -o widget-echarts.umd.min.js"
   },
   "private": true,
   "dependencies": {
@@ -20,6 +24,7 @@
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
+    "awesome-typescript-loader": "^5.2.1",
     "core-js": "^2.5.4",
     "echarts": "^4.2.1",
     "rxjs": "~6.3.3",
@@ -46,6 +51,7 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "ng-packagr": "^4.2.0",
     "protractor": "~5.4.0",
+    "rollup-plugin-uglify": "^6.0.2",
     "ts-node": "~7.0.0",
     "tsickle": ">=0.34.0",
     "tslib": "^1.9.0",

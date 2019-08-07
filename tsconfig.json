@@ -26,5 +26,9 @@
         "dist/widget-echarts/*"
       ]
     }
-  }
+  },
+  "exclude": [
+    "out-tsc",
+    "dist"
+  ]
 }
