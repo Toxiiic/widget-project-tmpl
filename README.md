@@ -2,26 +2,42 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 
-## Development server
+## aot 打包支持
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1. 项目根目录下添加rollup.config.js
+2. angular lib 工程下，添加tsconfig.ngc.json
+3. package.json文件下添加以下代码：
 
-## Code scaffolding
+```javascript
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+    "build:echarts": "ng build widget-echarts",
+    "ngc:echarts": "ngc -p ./projects/widget-echarts/tsconfig.ngc.json",
+    "rollup": "rollup --config rollup.config.js",
+    "min":"uglifyjs ./dist/widget-echarts.umd.min.js",
+    "terser":"terser widget-echarts.umd.js -c -m -o widget-echarts.umd.min.js"
 
-## Build
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+4. 开始打包
+   1. 首先执行`npm run ngc:echarts`,进行ngc 编译,ngc 编译的结果会生成到`out-tsc`文件夹。
+   2. 替换`out-tsc`文件夹下的public-api.js,添加ngFactory后缀名。示例如下：
 
-## Running unit tests
+```typescript
+export * from './lib/widget-echarts.service';
+export * from './lib/widget-echarts.component';
+export * from './lib/widget-echarts.module';
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+源文件
 
-## Running end-to-end tests
+```typescript
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+export * from './lib/widget-echarts.service';
+export * from './lib/widget-echarts.component.ngfactory';
+export * from './lib/widget-echarts.module.ngfactory';
 
-## Further help
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+替换后的
+
+5. 修改rollup.config.js中的`input` `output` 项目名称，使用rollup进行打包，执行`npm run rollup`。
