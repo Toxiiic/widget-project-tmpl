@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { WidgetEchartsModule } from 'projects/widget-echarts/src/public-api';
+import { WidgetWeatherModule } from 'projects/widget-weather/src/public-api';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import { WidgetEchartsModule } from 'projects/widget-echarts/src/public-api';
   ],
   imports: [
     BrowserModule,
-    WidgetEchartsModule
+    WidgetEchartsModule,
+    WidgetWeatherModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

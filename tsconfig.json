@@ -24,6 +24,12 @@
       ],
       "widget-echarts/*": [
         "dist/widget-echarts/*"
+      ],
+      "widget-weather": [
+        "dist/widget-weather"
+      ],
+      "widget-weather/*": [
+        "dist/widget-weather/*"
       ]
     }
   },

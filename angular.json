@@ -190,6 +190,41 @@
           }
         }
       }
+    },
+    "widget-weather": {
+      "root": "projects/widget-weather",
+      "sourceRoot": "projects/widget-weather/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/widget-weather/tsconfig.lib.json",
+            "project": "projects/widget-weather/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/widget-weather/src/test.ts",
+            "tsConfig": "projects/widget-weather/tsconfig.spec.json",
+            "karmaConfig": "projects/widget-weather/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/widget-weather/tsconfig.lib.json",
+              "projects/widget-weather/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "widget-examples"
