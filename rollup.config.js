@@ -8,11 +8,17 @@ import { uglify } from "rollup-plugin-uglify";
 export default {
     // input: './widget-aot-pkg-demo/widget-aot-pkg-demo.ngfactory.js',
     //input:'./dist/out-tsc/projects/widget-aot-pkg-demo/src/public-api.js',
-    input: './out-tsc/lib/projects/widget-echarts/src/public-api.js',
+    // input: './out-tsc/lib/projects/widget-echarts/src/public-api.js',
+    // output: {
+    //     file: 'dist/widget-echarts.umd.js',
+    //     format: 'umd',
+    //      name:'widget-echarts'
+    // },
+    input: './out-tsc/lib/projects/widget-weather/src/public-api.js',
     output: {
-        file: 'dist/widget-echarts.umd.js',
+        file: 'dist/widget-weather.umd.js',
         format: 'umd',
-         name:'widget-echarts'
+         name:'widget-weather'
     },
     globals:{
         echarts:'echarts'
