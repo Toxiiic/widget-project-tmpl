@@ -4,6 +4,7 @@ import "echarts";
 import * as echarts from 'echarts';
 // declare var echarts1;
 import { Widget } from '@widget/manifest';
+import { WidgetComponent } from 'src/widget.interface';
 
 @Widget({name:"echarts"})
 @Component({
@@ -14,7 +15,7 @@ import { Widget } from '@widget/manifest';
   `,
   styles: []
 })
-export class WidgetEchartsComponent implements OnInit {
+export class WidgetEchartsComponent implements OnInit, WidgetComponent {
 
   chartInstance:echarts.ECharts;
 
