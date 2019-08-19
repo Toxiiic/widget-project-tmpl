@@ -30,6 +30,12 @@
       ],
       "widget-weather/*": [
         "dist/widget-weather/*"
+      ],
+      "widget-personal-info": [
+        "dist/widget-personal-info"
+      ],
+      "widget-personal-info/*": [
+        "dist/widget-personal-info/*"
       ]
     }
   },

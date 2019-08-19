@@ -1,0 +1,22 @@
+<div style="display: flex;padding: 20px;">
+    <!-- <div style="width: 100px;"> -->
+        <img [src]="option['avatarUrl']"
+            style="width:90px;
+            height:90px;
+            object-fit: cover;
+            flex: 0 0 auto;"/>
+    <!-- </div> -->
+    <div style="padding: 10px 15px;">
+        <div style="font-size: 20px;">{{option['name']}}，早上好！新的一天请继续加油鸭~</div>
+        <div style="font-size: 14px;color: gray;margin: 5px 0;">{{option['role']}}</div>
+        <div style="display: flex;">
+            <div style="font-size: 12px;
+            padding: 4px 10px;
+            background: purple;
+            border-radius: 20px;
+            color: white;
+            margin: 10px;
+            margin-left: 0;" *ngFor="let tag of option['tags']" >{{tag}}</div>
+        </div>
+    </div>
+</div>

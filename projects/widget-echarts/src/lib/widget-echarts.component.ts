@@ -1,10 +1,10 @@
-import { Component, OnInit, ViewChild, ViewContainerRef, ElementRef, Renderer2 } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, ViewContainerRef, ElementRef, Renderer2 } from '@angular/core';
 
 import "echarts";
 import * as echarts from 'echarts';
 // declare var echarts1;
 import { Widget } from '@widget/manifest';
-import { WidgetComponent } from 'src/widget.interface';
+import { WidgetComponent, WidgetOptions } from 'src/widget.interface';
 
 @Widget({name:"echarts"})
 @Component({
@@ -16,6 +16,7 @@ import { WidgetComponent } from 'src/widget.interface';
   styles: []
 })
 export class WidgetEchartsComponent implements OnInit, WidgetComponent {
+  @Input() option: WidgetOptions
 
   chartInstance:echarts.ECharts;
 

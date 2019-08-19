@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { WidgetEchartsModule } from 'projects/widget-echarts/src/public-api';
 import { WidgetWeatherModule } from 'projects/widget-weather/src/public-api';
+import { WidgetPersonalInfoModule } from 'projects/widget-personal-info/src/public-api';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { WidgetWeatherModule } from 'projects/widget-weather/src/public-api';
     BrowserModule,
     WidgetEchartsModule,
     WidgetWeatherModule,
+    WidgetPersonalInfoModule
   ],
   providers: [],
   bootstrap: [AppComponent]
