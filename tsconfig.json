@@ -36,6 +36,12 @@
       ],
       "widget-personal-info/*": [
         "dist/widget-personal-info/*"
+      ],
+      "widget-devkit": [
+        "dist/widget-devkit"
+      ],
+      "widget-devkit/*": [
+        "dist/widget-devkit/*"
       ]
     }
   },

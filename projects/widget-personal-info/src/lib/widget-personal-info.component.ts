@@ -1,6 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { WidgetComponent, WidgetOptions } from 'src/widget.interface';
+import { Widget } from '@widget/manifest';
 
+@Widget({
+  name: 'personal-info'
+})
 @Component({
   selector: 'lib-widget-personal-info',
   templateUrl: './widget-personal-info.component.html',

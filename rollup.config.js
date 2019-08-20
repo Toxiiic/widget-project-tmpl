@@ -14,12 +14,21 @@ export default {
     //     format: 'umd',
     //      name:'widget-echarts'
     // },
-    input: './out-tsc/lib/projects/widget-weather/src/public-api.js',
+    
+    // input: './out-tsc/lib/projects/widget-weather/src/public-api.js',
+    // output: {
+    //     file: 'dist/widget-weather.umd.js',
+    //     format: 'umd',
+    //      name:'widget-weather'
+    // },
+
+    input: './out-tsc/lib/projects/widget-personal-info/src/public-api.js',
     output: {
-        file: 'dist/widget-weather.umd.js',
+        file: 'dist/widget-personal-info.umd.js',
         format: 'umd',
-         name:'widget-weather'
+         name:'widget-personal-info'
     },
+    
     globals:{
         echarts:'echarts'
     },

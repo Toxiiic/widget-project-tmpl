@@ -1,5 +1,6 @@
 
 export interface WidgetOptions {
+    // 大小 title
     [name: string]: any
 }
 
