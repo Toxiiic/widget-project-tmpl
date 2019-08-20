@@ -4,7 +4,7 @@ import "echarts";
 import * as echarts from 'echarts';
 // declare var echarts1;
 import { Widget } from '@widget/manifest';
-import { WidgetComponent, WidgetOptions } from 'src/widget.interface';
+import { WidgetBase, WidgetOptions } from 'projects/widget-devkit/src/WidgetBase';
 
 @Widget({name:"echarts"})
 @Component({
@@ -15,7 +15,7 @@ import { WidgetComponent, WidgetOptions } from 'src/widget.interface';
   `,
   styles: []
 })
-export class WidgetEchartsComponent implements OnInit, WidgetComponent {
+export class WidgetEchartsComponent extends WidgetBase {
   @Input() option: WidgetOptions
 
   chartInstance:echarts.ECharts;
@@ -23,7 +23,9 @@ export class WidgetEchartsComponent implements OnInit, WidgetComponent {
   @ViewChild("chart") 
   chartContainer:ElementRef;
   
-  constructor(private render2:Renderer2) { }
+  constructor(private render2:Renderer2) {
+    super()
+  }
 
   ngOnInit() {
     console.log(this.chartContainer);

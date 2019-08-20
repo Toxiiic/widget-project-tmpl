@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Widget } from '@widget/manifest';
-import { WidgetComponent, WidgetOptions } from 'src/widget.interface';
+import { WidgetBase, WidgetOptions } from 'projects/widget-devkit/src/WidgetBase';
 
 @Widget({name:"weather"})
 @Component({
@@ -8,11 +8,11 @@ import { WidgetComponent, WidgetOptions } from 'src/widget.interface';
   templateUrl: './widget-weather.component.html',
   styleUrls: ['./widget-weather.component.scss']
 })
-export class WidgetWeatherComponent implements OnInit, WidgetComponent {
+export class WidgetWeatherComponent extends WidgetBase {
 
-  @Input() option: WidgetOptions
-
-  constructor() { }
+  constructor() {
+    super()
+  }
 
   ngOnInit() {
   }

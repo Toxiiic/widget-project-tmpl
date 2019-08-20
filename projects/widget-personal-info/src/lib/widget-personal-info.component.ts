@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { WidgetComponent, WidgetOptions } from 'src/widget.interface';
+import { WidgetBase, WidgetOptions } from 'projects/widget-devkit/src/WidgetBase';
 import { Widget } from '@widget/manifest';
 
 @Widget({
@@ -10,16 +10,18 @@ import { Widget } from '@widget/manifest';
   templateUrl: './widget-personal-info.component.html',
   styleUrls: ['./widget-personal-info.component.scss']
 })
-export class WidgetPersonalInfoComponent implements OnInit, WidgetComponent {
+export class WidgetPersonalInfoComponent extends WidgetBase {
 
-  @Input() option: WidgetOptions = {
-    avatarUrl: 'https://github.com/fluidicon.png',
-    name: '李浪潮',
-    role: '浪潮国际-销售专员',
-    tags: ['销售王牌', '情商碾压', '沟通高效']
+  constructor() {
+    super()
+    this.option = {
+      title: '个人信息',
+      avatarUrl: 'https://github.com/fluidicon.png',
+      name: '李浪潮',
+      role: '浪潮国际-销售专员',
+      tags: ['销售王牌', '情商碾压', '沟通高效']
+    }
   }
-
-  constructor() { }
 
   ngOnInit() {
   }
