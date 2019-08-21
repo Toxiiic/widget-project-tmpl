@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { WidgetEchartsModule } from 'projects/widget-echarts/src/public-api';
 import { WidgetWeatherModule } from 'projects/widget-weather/src/public-api';
 import { WidgetPersonalInfoModule } from 'projects/widget-personal-info/src/public-api';
+import { WidgetCommonFunctionsModule } from 'projects/widget-common-functions/src/public-api';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { WidgetPersonalInfoModule } from 'projects/widget-personal-info/src/publ
     BrowserModule,
     WidgetEchartsModule,
     WidgetWeatherModule,
-    WidgetPersonalInfoModule
+    WidgetPersonalInfoModule,
+    WidgetCommonFunctionsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

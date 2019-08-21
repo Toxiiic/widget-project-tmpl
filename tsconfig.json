@@ -42,6 +42,12 @@
       ],
       "widget-devkit/*": [
         "dist/widget-devkit/*"
+      ],
+      "widget-common-functions": [
+        "dist/widget-common-functions"
+      ],
+      "widget-common-functions/*": [
+        "dist/widget-common-functions/*"
       ]
     }
   },

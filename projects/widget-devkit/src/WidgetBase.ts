@@ -11,8 +11,9 @@ export interface WidgetOptions {
 
 export abstract class WidgetBase implements OnInit {
 
-    @Input()
-    option: WidgetOptions
+    @Input() option: WidgetOptions = {
+        title: '未定义标题'
+    }
     
     abstract ngOnInit (): void
     onResized (): void { }

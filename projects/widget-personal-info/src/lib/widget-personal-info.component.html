@@ -20,13 +20,13 @@
     <div style="padding: 10px 15px;">
         <div style="font-size: 20px;">{{option['name']}}，早上好！新的一天请继续加油鸭~</div>
         <div style="font-size: 14px;color: gray;margin: 5px 0;">{{option['role']}}</div>
-        <div style="display: flex;">
+        <div style="display: flex;flex-wrap:wrap;">
             <div style="font-size: 12px;
             padding: 4px 10px;
             background: purple;
             border-radius: 20px;
             color: white;
-            margin: 10px 10px 0 0;
+            margin: 5px 10px 0 0;
             margin-left: 0;" *ngFor="let tag of option['tags']" >{{tag}}</div>
         </div>
     </div>
