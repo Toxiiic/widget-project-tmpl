@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { WidgetDevkitComponent } from './widget-devkit.component';
 import { WidgetTitleBarComponent } from './widget-title-bar/widget-title-bar.component';
@@ -9,7 +10,8 @@ import { WidgetTitleBarComponent } from './widget-title-bar/widget-title-bar.com
     WidgetTitleBarComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule
   ],
   exports: [
     WidgetDevkitComponent,

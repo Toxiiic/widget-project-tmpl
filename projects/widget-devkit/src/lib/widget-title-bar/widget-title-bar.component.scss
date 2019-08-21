@@ -1,6 +1,8 @@
+$brandBlue: #388fff;
+
 .widget-title-bar {
     display: flex;
-    padding: 15px 20px;
+    padding: 15px 20px 10px;
     .left {
         flex: 1 1 auto;
         display: flex;
@@ -17,11 +19,22 @@
         flex: 1 1 auto;
         display: flex;
         justify-content: flex-end;
+        align-items: center;
         
+        .filter {
+            padding: 1px 2px 3px;
+            border: 1px solid #bfbfbf;
+            border-radius: 3px;
+            &:focus {
+                box-shadow: 0 0 0px 3px #007eff4a;
+                outline: none;
+                border-color: $brandBlue;
+            }
+        }
         .setting {
             margin-left: 10px;
             cursor: pointer;
-            .icon {
+            // .icon {
                 width: 16px;
                 height: 16px;
                 opacity: .3;
@@ -30,13 +43,16 @@
                     opacity: .4;
                     transform: rotate(30deg);
                 }
-            }
+            // }
         }
         .more {
             margin-left: 10px;
             font-size: 14px;
             color: gray;
             cursor: pointer;
+            &:hover {
+                color: $brandBlue;
+            }
         }
     }
 }
