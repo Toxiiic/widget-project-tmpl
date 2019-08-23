@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Widget } from '@widget/manifest';
-import { WidgetBase, WidgetOptions } from 'projects/widget-devkit/src/WidgetBase';
+import { Widget, WidgetBase } from '@widget/manifest';
 
 @Widget({name:"weather"})
 @Component({

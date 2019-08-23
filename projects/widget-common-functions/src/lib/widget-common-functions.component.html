@@ -12,11 +12,12 @@
     <div style="overflow-y: scroll;flex: 1 1 auto;">
         <ul style="list-style: none;
             margin: 30px;
-            margin-top: 10px;
+            margin-top: 0px;
             padding: 0;
             display: flex;
             flex-wrap: wrap;
             outline: .5px solid white;
+            font-size: 14px;
             ">
             <li *ngFor="let fn of functionList"
                 class="functionItem"
@@ -24,7 +25,7 @@
                 text-align: center;
                 cursor: pointer;
                 outline: 1px solid #ecedf2;
-                padding: 16px 0"
+                padding: 10px 0"
                 (click)="handleClickFunction(fn)" >{{fn.name}}</li>
         </ul>
     </div>

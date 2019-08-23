@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { WidgetPersonalInfoComponent } from './widget-personal-info.component';
-import { WidgetDevkitModule } from 'projects/widget-devkit/src/public-api';
+import { WidgetTitleBarModule } from '@widget/manifest';
 // TODO: 把元部件依赖的部分都放在一个单独的库里？
 
 
@@ -9,7 +9,7 @@ import { WidgetDevkitModule } from 'projects/widget-devkit/src/public-api';
   declarations: [WidgetPersonalInfoComponent],
   imports: [
     BrowserModule,
-    WidgetDevkitModule
+    WidgetTitleBarModule
   ],
   exports: [WidgetPersonalInfoComponent]
 })

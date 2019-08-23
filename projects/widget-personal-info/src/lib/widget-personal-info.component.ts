@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { WidgetBase, WidgetOptions } from 'projects/widget-devkit/src/WidgetBase';
-import { Widget } from '@widget/manifest';
+import { Widget, WidgetBase } from '@widget/manifest';
 
 @Widget({
   name: 'personal-info'

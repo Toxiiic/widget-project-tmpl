@@ -61,7 +61,7 @@ title: *string* 元部件显示的部件标题文字。
 ```
 widget-example/
 	logo.png			（logo图片）
-	preview.jpeg		（预览图）
+	preview.png			（预览图）
 	main.js				（打包后的元部件的主体脚本）
 	widget-config.json	（元部件的配置文件）
 	README.md			（元部件的说明文档）
@@ -73,15 +73,13 @@ widget-example/
 
 ## widget-config.json
 
-元部件的配置文件。最简单版本的配置文件如下：
+元部件的注册信息配置文件。最简单版本的配置文件如下：
 
 ```json
-/* 仅配置必填项（名称及运行时依赖），其他可选项保持默认配置 */
+/* 仅配置必填项，其他可选项保持默认配置 */
 {
 	"name": "widget-example",
-    "dependencies": {
-        "echarts": "4.2.1"
-    }
+    "moduleName": "WidgetExampleModule",
 }
 ```
 
@@ -91,6 +89,8 @@ widget-example/
 {
     /* 元部件名称，必需 */
 	"name": "widget-example",
+    /* 元部件 Module 类名，必需 */
+    "moduleName": "WidgetExampleModule",
     /* 版本号，可选，以下为默认值 */
     "version": "0.0.1",
     /* 元部件提供的资源文件路径，可选，以下为默认值 */
@@ -107,10 +107,6 @@ widget-example/
         "maxCols": 12,
         "maxRows": 12,
     },
-    /* 运行时依赖包及其版本，必需 */
-    "dependencies": {
-        "echarts": "4.2.1"
-    }
 }
 ```
 

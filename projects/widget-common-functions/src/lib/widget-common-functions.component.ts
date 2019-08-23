@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { WidgetBase } from 'projects/widget-devkit/src/WidgetBase';
-import { Widget } from '@widget/manifest';
+import { Widget, WidgetBase } from '@widget/manifest';
 
 export interface FunctionItem {
   id: string,
