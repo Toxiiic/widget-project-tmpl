@@ -1,4 +1,11 @@
 <style>
+.functionItem {
+    flex: 1 1 auto;
+    text-align: center;
+    cursor: pointer;
+    /* outline: 1px solid #ecedf2; */
+    padding: 10px;
+}
 .functionItem:hover {
     color: #388fff;
 }
@@ -16,16 +23,11 @@
             padding: 0;
             display: flex;
             flex-wrap: wrap;
-            outline: .5px solid white;
             font-size: 14px;
             ">
+            <!-- outline: .5px solid white; -->
             <li *ngFor="let fn of functionList"
                 class="functionItem"
-                style="width: 50%;
-                text-align: center;
-                cursor: pointer;
-                outline: 1px solid #ecedf2;
-                padding: 10px 0"
                 (click)="handleClickFunction(fn)" >{{fn.name}}</li>
         </ul>
     </div>

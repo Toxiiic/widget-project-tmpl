@@ -1,15 +1,8 @@
 <lib-widget-title-bar
-    title="个人信息"
-    number="23"
-    [filterOptions]="[{value: 0, name: '最近一周'}, {value: 1, name: '最近一个月'}, {value: 2, name: '最近一年'}]"
-    [defaultFilterValue]="1"
-    (onFilterChange)="handleChangeFilter($event)"
-    showFilter="true"
-    showNumber="true"
-    showSetting="true"
-    showMore="true" >
+    (onCilckSetting)="handleClickSetting()"
+    showSetting="true" >
 </lib-widget-title-bar>
-<div style="display: flex;padding: 20px;">
+<div style="display: flex;padding: 20px;margin-top: -35px;">
     <!-- <div style="width: 100px;"> -->
         <img [src]="option['avatarUrl']"
             style="width:90px;

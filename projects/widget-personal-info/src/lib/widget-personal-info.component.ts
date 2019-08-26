@@ -21,8 +21,8 @@ export class WidgetPersonalInfoComponent extends WidgetBase {
       tags: ['销售王牌', '情商碾压', '沟通高效']
     }
   }
-  handleChangeFilter (e) {
-    console.log(e)
+  handleClickSetting () {
+    console.log('setting')
   }
   ngOnInit() {
   }
