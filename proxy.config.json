@@ -1,0 +1,10 @@
+{
+  "/weather-api":{
+    "target":"http://flash.weather.com.cn",
+    "secure": false,
+     "changeOrigin": true,
+     "logLevel": "debug",
+    "pathRewrite": {"^/weather-api" : ""}
+  }
+}
+  

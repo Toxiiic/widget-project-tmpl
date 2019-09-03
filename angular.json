@@ -84,6 +84,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
+            "proxyConfig": "proxy.config.json",
             "browserTarget": "widget-examples:build"
           },
           "configurations": {
@@ -202,7 +203,8 @@
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
             "tsConfig": "projects/widget-weather/tsconfig.lib.json",
-            "project": "projects/widget-weather/ng-package.json"
+            "project": "projects/widget-weather/ng-package.json",
+            "proxyConfig": "proxy.config.json"
           }
         },
         "test": {
