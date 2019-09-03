@@ -18,7 +18,8 @@ export class WidgetPersonalInfoComponent extends WidgetBase {
       avatarUrl: 'https://github.com/fluidicon.png',
       name: '李浪潮',
       role: '浪潮国际-销售专员',
-      tags: ['销售王牌', '情商碾压', '沟通高效']
+      motto: '我走过的路，都是希望的路~'
+      // tags: ['销售王牌', '情商碾压', '沟通高效']
     }
   }
   handleClickSetting () {
