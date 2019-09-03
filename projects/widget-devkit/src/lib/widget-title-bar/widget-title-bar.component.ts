@@ -6,6 +6,24 @@ export interface FilterOption<> {
   name: string
 }
 
+/**
+ * ```html
+ * <lib-widget-title-bar
+ *  (onCilckSetting)="handleClickSetting()"
+ *  showSetting="true" >
+ *    <ng-template #rightTemplate>
+        <lib-widget-title-bar-select
+            [filterOptions]="[{name: '1', value: '1'}, {name: '2', value: '2'}]"
+            (onFilterChange)="handleFilterChange()"
+        ></lib-widget-title-bar-select>
+        <lib-widget-title-bar-select
+            [filterOptions]="[{name: '1', value: '1'}, {name: '2', value: '2'}]"
+            (onFilterChange)="handleFilterChange()"
+        ></lib-widget-title-bar-select>
+    </ng-template>
+    </lib-widget-title-bar>
+    ```
+ */
 @Component({
   selector: 'lib-widget-title-bar',
   templateUrl: './widget-title-bar.component.html',

@@ -24,6 +24,9 @@ export class WidgetPersonalInfoComponent extends WidgetBase {
   handleClickSetting () {
     console.log('setting')
   }
+  handleFilterChange () {
+    console.log('filter change')
+  }
   ngOnInit() {
   }
 

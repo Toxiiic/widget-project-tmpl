@@ -79,6 +79,7 @@ widget-example/
 /* 仅配置必填项，其他可选项保持默认配置 */
 {
 	"name": "widget-example",
+    "displayName": "实例元部件",
     "moduleName": "WidgetExampleModule",
 }
 ```
@@ -87,10 +88,14 @@ widget-example/
 
 ```json
 {
-    /* 元部件名称，必需 */
+    /* 元部件名称，必需与元部件组件的 @Widget() 参数中的 name 一致 */
 	"name": "widget-example",
+    /* 元部件显示名称，必需 */
+    "displayName": "实例元部件",
     /* 元部件 Module 类名，必需 */
     "moduleName": "WidgetExampleModule",
+    /* 元部件描述，可选 */
+    "desc": "",
     /* 版本号，可选，以下为默认值 */
     "version": "0.0.1",
     /* 元部件提供的资源文件路径，可选，以下为默认值 */
@@ -101,12 +106,16 @@ widget-example/
         "assets": "./assets"
     },
     /* 元部件尺寸范围，可选，以下为默认值 */
-    "size": {
-        "minCols": 3,
-        "minRows": 3,
-        "maxCols": 12,
-        "maxRows": 12,
-    },
+    "layout": {
+        "grid": {
+            "minCols": 3,
+            "minRows": 3,
+            "maxCols": 12,
+            "maxRows": 12
+        },
+        "other": {
+        }
+    }
 }
 ```
 

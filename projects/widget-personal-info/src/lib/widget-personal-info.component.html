@@ -1,15 +1,23 @@
 <lib-widget-title-bar
     (onCilckSetting)="handleClickSetting()"
     showSetting="true" >
+    <!-- <ng-template #rightTemplate>
+        <lib-widget-title-bar-select
+            [filterOptions]="[{name: '1', value: '1'}, {name: '2', value: '2'}]"
+            (onFilterChange)="handleFilterChange()"
+        ></lib-widget-title-bar-select>
+        <lib-widget-title-bar-select
+            [filterOptions]="[{name: '1', value: '1'}, {name: '2', value: '2'}]"
+            (onFilterChange)="handleFilterChange()"
+        ></lib-widget-title-bar-select>
+    </ng-template> -->
 </lib-widget-title-bar>
 <div style="display: flex;padding: 20px;margin-top: -35px;">
-    <!-- <div style="width: 100px;"> -->
-        <img [src]="option['avatarUrl']"
-            style="width:90px;
-            height:90px;
-            object-fit: cover;
-            flex: 0 0 auto;"/>
-    <!-- </div> -->
+    <img [src]="option['avatarUrl']"
+        style="width:90px;
+        height:90px;
+        object-fit: cover;
+        flex: 0 0 auto;"/>
     <div style="padding: 10px 15px;">
         <div style="font-size: 20px;">{{option['name']}}，早上好！新的一天请继续加油鸭~</div>
         <div style="font-size: 14px;color: gray;margin: 5px 0;">{{option['role']}}</div>
