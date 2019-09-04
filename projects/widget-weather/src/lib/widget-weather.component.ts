@@ -15,6 +15,7 @@ export class WidgetWeatherComponent extends WidgetBase {
   temperature = '20'
   weather = ''
   windPower = ''
+  windDir = ''
   humidity = ''
   feelTemp = ''
   date = ''
@@ -39,6 +40,7 @@ export class WidgetWeatherComponent extends WidgetBase {
       this.temperature = cityEle.getAttribute('temNow')
       this.weather = cityEle.getAttribute('stateDetailed')
       this.windPower = cityEle.getAttribute('windPower')
+      this.windDir = cityEle.getAttribute('windDir')
       this.humidity = cityEle.getAttribute('humidity')
       this.feelTemp = String(parseInt(this.temperature) + Math.floor(Math.random()*2))
       this.date = new Date().toDateString()

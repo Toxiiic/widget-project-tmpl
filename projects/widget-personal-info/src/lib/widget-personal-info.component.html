@@ -12,13 +12,15 @@
         ></lib-widget-title-bar-select>
     </ng-template> -->
 </lib-widget-title-bar>
-<div style="display: flex;padding: 20px;margin-top: -35px;">
+<div style="display: flex;
+    padding: 25px;
+    margin-top: -38px;">
     <img [src]="option['avatarUrl']"
         style="width:80px;
         height:80px;
         object-fit: cover;
         flex: 0 0 auto;box-shadow: 0 4px 7px 0 #d0dadf;
-    border-radius: 100px;"/>
+        border-radius: 100px;"/>
     <div style="padding: 2px 15px;">
         <div style="font-size: 20px;">{{option['name']}}</div>
         <div style="font-size: 14px;color: #00000073;margin: 5px 0;">{{option['role']}}</div>
