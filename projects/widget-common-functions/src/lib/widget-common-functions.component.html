@@ -1,10 +1,15 @@
 <style>
 .functionItem {
-    flex: 1 1 auto;
+    /* flex: 1 1 auto; */
+    width: 20%;
     text-align: center;
     cursor: pointer;
     /* outline: 1px solid #ecedf2; */
-    padding: 10px;
+    padding: 5px;
+    box-sizing: border-box;
+    margin: 6px 0;
+    font-size: 12px;
+    transition: all .3s;
 }
 .functionItem:hover {
     color: #388fff;
@@ -18,7 +23,7 @@
         ></lib-widget-title-bar>
     <div style="overflow-y: scroll;flex: 1 1 auto;">
         <ul style="list-style: none;
-            margin: 30px;
+            margin: 10px;
             margin-top: 0px;
             padding: 0;
             display: flex;
@@ -26,9 +31,154 @@
             font-size: 14px;
             ">
             <!-- outline: .5px solid white; -->
-            <li *ngFor="let fn of functionList"
+            <li *ngFor="let fn of functionList; let i = index;"
                 class="functionItem"
-                (click)="handleClickFunction(fn)" >{{fn.name}}</li>
+                (click)="handleClickFunction(fn)" >
+                <ng-container *ngIf="icons">
+                    <ng-container *ngTemplateOutlet="icons[i%icons.length]"></ng-container>
+                </ng-container>
+                <div style="margin-top: 5px;">{{fn.name}}</div>
+            </li>
+            <li>
+                <!-- <i class="add-icon material-icons">+</i> -->
+            </li>
         </ul>
     </div>
 </div>
+
+
+
+<ng-template #icon1>
+    <svg width="37px" height="37px" viewBox="0 0 37 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+        <title>Group 4</title>
+        <desc>Created with Sketch.</desc>
+        <defs>
+            <linearGradient x1="163.898341%" y1="25.4625485%" x2="80.3273068%" y2="83.3923931%" id="linearGradient-1">
+                <stop stop-color="#00CDBB" offset="0%"></stop>
+                <stop stop-color="#00BCAE" offset="100%"></stop>
+            </linearGradient>
+            <linearGradient x1="5.51055953%" y1="0.530993833%" x2="80.3273068%" y2="83.3923931%" id="linearGradient-2">
+                <stop stop-color="#00D9C3" offset="0%"></stop>
+                <stop stop-color="#00C9B8" offset="100%"></stop>
+            </linearGradient>
+            <path d="M25.4676923,4 L4.53115385,4 C2.03884615,4 0,6.09696071 0,8.65885841 L0,23.0209044 C6.98076923,30.8038547 16.9038462,35.7461824 27.9553846,36 C29.0976923,35.8837658 30,34.8969607 30,33.6942921 L30,8.65885841 C30,6.09696071 27.96,4 25.4676923,4" id="path-3"></path>
+            <linearGradient x1="89.5410308%" y1="9.80707309%" x2="17.8299574%" y2="77.7717921%" id="linearGradient-5">
+                <stop stop-color="#FFFFFF" stop-opacity="0.636775362" offset="0%"></stop>
+                <stop stop-color="#59C1C3" offset="100%"></stop>
+            </linearGradient>
+            <linearGradient x1="27.4642157%" y1="6.42847405%" x2="86.6472331%" y2="64.874659%" id="linearGradient-6">
+                <stop stop-color="#FFFFFF" stop-opacity="0.636775362" offset="0%"></stop>
+                <stop stop-color="#00D0B9" offset="100%"></stop>
+            </linearGradient>
+        </defs>
+        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="GS-Cloud首页" transform="translate(-1080.000000, -138.000000)">
+                <g id="Group-13" transform="translate(964.000000, 138.000000)">
+                    <g id="Group-4" transform="translate(116.000000, 0.500000)">
+                        <g id="Group-7">
+                            <path d="M4.53230769,4 L25.4688462,4 C27.9611538,4 30,6.09696071 30,8.65885841 L30,23.0209044 C23.0192308,30.8038547 13.0961538,35.7461824 2.04461538,36 C0.902307692,35.8837658 0,34.8969607 0,33.6942921 L0,8.65885841 C0,6.09696071 2.04,4 4.53230769,4" id="Fill-1" fill="url(#linearGradient-1)"></path>
+                            <g id="Mask">
+                                <g id="Fill-1">
+                                    <g id="Fill-2">
+                                        <mask id="mask-4" fill="white">
+                                            <use xlink:href="#path-3"></use>
+                                        </mask>
+                                        <use id="Mask" fill="url(#linearGradient-2)" xlink:href="#path-3"></use>
+                                        <path d="M10.5323077,0 L31.4688462,0 C33.9611538,0 36,2.09696071 36,4.65885841 L36,19.0209044 C29.0192308,26.8038547 19.0961538,31.7461824 8.04461538,32 C6.90230769,31.8837658 6,30.8969607 6,29.6942921 L6,4.65885841 C6,2.09696071 8.04,0 10.5323077,0" id="Fill-1" fill="url(#linearGradient-5)" style="mix-blend-mode: multiply;" opacity="0.15" mask="url(#mask-4)" transform="translate(21.000000, 16.000000) scale(-1, 1) translate(-21.000000, -16.000000) "></path>
+                                        <path d="M31.5647121,3.90798505e-14 C34.0665143,3.90798505e-14 36.1142857,2.10070528 36.1142857,4.6671778 L36.1142857,29.7473176 C36.1142857,30.9521339 35.2085407,31.940701 34.0618813,32.0571429 C22.9682418,31.802872 13.0073626,26.8517187 6,19.0548703 L6,4.6671778 C6,2.10070528 8.04661319,3.90798505e-14 10.5484154,3.90798505e-14 L31.5647121,3.90798505e-14 Z" fill="url(#linearGradient-6)" style="mix-blend-mode: multiply;" opacity="0.2"></path>
+                                    </g>
+                                    <path d="M16.0081243,12.5779077 L17.348964,15.1950348 C17.5069364,15.501768 17.8087538,15.7145024 18.16066,15.7627387 L21.1595685,16.18326 C22.0431869,16.3069428 22.3963774,17.3520621 21.7567815,17.9531603 L19.5862653,19.9902153 C19.3319681,20.228923 19.2163785,20.5715242 19.276742,20.9079413 L19.7891893,23.7848023 C19.9407401,24.633266 19.0160232,25.27889 18.2261607,24.8781578 L15.5431972,23.5201212 C15.2298209,23.3618072 14.8547968,23.3618072 14.5401361,23.5201212 L11.8584569,24.8781578 C11.0673102,25.27889 10.1438775,24.633266 10.294144,23.7848023 L10.8065914,20.9079413 C10.8669548,20.5715242 10.7513652,20.228923 10.497068,19.9902153 L8.3265518,17.9531603 C7.6869559,17.3520621 8.04014641,16.3069428 8.92376485,16.18326 L11.9226734,15.7627387 C12.2745796,15.7145024 12.5776812,15.501768 12.7343694,15.1950348 L14.075209,12.5779077 C14.4707824,11.8073641 15.612551,11.8073641 16.0081243,12.5779077" fill="#FFFFFF"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </svg>
+</ng-template>
+<ng-template #icon2>
+    <svg width="41px" height="36px" viewBox="0 0 41 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+        <title>Group 9</title>
+        <desc>Created with Sketch.</desc>
+        <defs>
+            <linearGradient x1="5.6912963%" y1="1.24864523%" x2="57.9027191%" y2="100%" id="linearGradient-1">
+                <stop stop-color="#63C4FF" offset="0%"></stop>
+                <stop stop-color="#4D97FF" offset="100%"></stop>
+            </linearGradient>
+            <path d="M34.3125577,18.8991847 L19.2663328,3.74035454 C18.2873064,2.75321515 16.7131688,2.75321515 15.7332873,3.74035454 L0.687062444,18.8991847 C-0.77249918,20.3698566 0.247569371,22.9079656 2.29882206,22.9079656 L3.23509621,22.9079656 L3.23509621,33.0368362 C3.23509621,34.6663581 4.54074975,36 6.13711856,36 L27.6945103,36 C29.290024,36 30.5965326,34.6663581 30.5965326,33.0368362 L30.5965326,22.9079656 L32.7007981,22.9079656 C34.7520508,22.9079656 35.7729744,20.3698566 34.3125577,18.8991847" id="path-2"></path>
+            <linearGradient x1="-10.021857%" y1="0%" x2="86.2888903%" y2="100%" id="linearGradient-4">
+                <stop stop-color="#FFFFFF" stop-opacity="0.636775362" offset="0%"></stop>
+                <stop stop-color="#BCD9FF" offset="100%"></stop>
+            </linearGradient>
+            <linearGradient x1="20.6310676%" y1="14.4086523%" x2="59.7089389%" y2="100%" id="linearGradient-5">
+                <stop stop-color="#FFFFFF" stop-opacity="0.636775362" offset="0%"></stop>
+                <stop stop-color="#D6E4FF" offset="100%"></stop>
+            </linearGradient>
+        </defs>
+        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="GS-Cloud首页" transform="translate(-1186.000000, -139.000000)">
+                <g id="Group-13" transform="translate(964.000000, 138.000000)">
+                    <g id="Group-9" transform="translate(222.000000, 1.000000)">
+                        <g id="Group-3">
+                            <g id="Fill-1">
+                                <g id="Group-12">
+                                    <mask id="mask-3" fill="white">
+                                        <use xlink:href="#path-2"></use>
+                                    </mask>
+                                    <use id="Mask" fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+                                    <path d="M41.2929165,15.8991847 L25.8167995,0.740354543 C24.8098009,-0.246784848 23.1906879,-0.246784848 22.1828098,0.740354543 L6.7066928,15.8991847 C5.20542941,17.3698566 6.25464278,19.9079656 8.36450269,19.9079656 L9.32752753,19.9079656 L9.32752753,30.0368362 C9.32752753,31.6663581 10.6704855,33 12.3124648,33 L34.485782,33 C36.1268819,33 37.4707193,31.6663581 37.4707193,30.0368362 L37.4707193,19.9079656 L39.6351066,19.9079656 C41.7449665,19.9079656 42.7950594,17.3698566 41.2929165,15.8991847" id="Fill-1" fill="url(#linearGradient-4)" style="mix-blend-mode: multiply;" opacity="0.6" mask="url(#mask-3)"></path>
+                                    <path d="M40.3125577,15.8991847 L25.2663328,0.740354543 C24.2873064,-0.246784848 22.7131688,-0.246784848 21.7332873,0.740354543 L6.68706244,15.8991847 C5.22750082,17.3698566 6.24756937,19.9079656 8.29882206,19.9079656 L9.23509621,19.9079656 L9.23509621,30.0368362 C9.23509621,31.6663581 10.5407498,33 12.1371186,33 L33.6945103,33 C35.290024,33 36.5965326,31.6663581 36.5965326,30.0368362 L36.5965326,19.9079656 L38.7007981,19.9079656 C40.7520508,19.9079656 41.7729744,17.3698566 40.3125577,15.8991847" id="Fill-1" fill="url(#linearGradient-5)" style="mix-blend-mode: multiply;"></path>
+                                    <rect id="Rectangle" fill="#FFFFFF" fill-rule="nonzero" x="10" y="20" width="4" height="4" rx="1.1"></rect>
+                                    <rect id="Rectangle-Copy-4" fill="#FFFFFF" fill-rule="nonzero" x="10" y="27" width="4" height="4" rx="1.1"></rect>
+                                    <rect id="Rectangle-Copy-5" fill="#FFFFFF" fill-rule="nonzero" x="17" y="27" width="4" height="4" rx="1.1"></rect>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </svg>
+</ng-template>
+<ng-template #icon3>
+    <svg width="39px" height="37px" viewBox="0 0 39 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+        <title>Group 10</title>
+        <desc>Created with Sketch.</desc>
+        <defs>
+            <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="linearGradient-1">
+                <stop stop-color="#FFBF31" offset="0%"></stop>
+                <stop stop-color="#FF9300" offset="100%"></stop>
+            </linearGradient>
+            <path d="M18.1781111,32.9156667 C26.5026667,32.0747778 33,25.047 33,16.5 C33,7.38711111 25.6128889,0 16.5,0 C7.38711111,0 0,7.38711111 0,16.5 C0,20.7521111 1.62188889,24.6155556 4.26311111,27.5415556 L2.94677778,31.4917778 C2.69988889,32.2336667 3.25233333,33 4.03455556,33 L18.1781111,32.9156667 Z" id="path-2"></path>
+            <linearGradient x1="105.651244%" y1="100%" x2="18.1644696%" y2="0%" id="linearGradient-4">
+                <stop stop-color="#FFE6C2" offset="0%"></stop>
+                <stop stop-color="#FFFFFF" offset="100%"></stop>
+            </linearGradient>
+            <linearGradient x1="80.7678862%" y1="88.9221271%" x2="17.882055%" y2="0%" id="linearGradient-5">
+                <stop stop-color="#FFE6C2" offset="0%"></stop>
+                <stop stop-color="#FFFFFF" offset="100%"></stop>
+            </linearGradient>
+        </defs>
+        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="GS-Cloud首页" transform="translate(-1283.000000, -138.000000)">
+                <g id="Group-13" transform="translate(964.000000, 138.000000)">
+                    <g id="Group-10" transform="translate(319.000000, 0.000000)">
+                        <g id="Oval" transform="translate(0.000000, 4.000000)">
+                            <mask id="mask-3" fill="white">
+                                <use xlink:href="#path-2"></use>
+                            </mask>
+                            <use id="Mask" fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+                            <circle fill="url(#linearGradient-4)" fill-rule="nonzero" style="mix-blend-mode: multiply;" opacity="0.8" mask="url(#mask-3)" cx="22.5" cy="12.5" r="16.5"></circle>
+                        </g>
+                        <circle id="Oval" fill="url(#linearGradient-5)" fill-rule="nonzero" style="mix-blend-mode: multiply;" opacity="0.800000012" cx="22.5" cy="16.5" r="16.5"></circle>
+                        <path d="M20.2865797,22.2685947 L17.5946625,22.2685947 L17.5946625,21.121968 L20.2865797,21.121968 C21.034421,21.121968 21.632587,20.6234558 21.632587,19.9754386 C21.632587,19.3273484 21.034421,18.8288362 20.2865797,18.8288362 L18.093199,18.8288362 L20.8349188,16.1867458 C21.1838773,15.8876141 21.3334553,15.4888287 21.1838773,15.0899459 C21.034421,14.6911848 20.7352894,14.2923994 20.2367528,14.1926483 C19.7880675,14.0929945 19.289531,14.1926483 18.9405724,14.49178 L16.1988526,17.1338703 L13.6065648,14.49178 C13.0581284,14.0430946 12.210755,14.0430946 11.6622942,14.49178 C11.1139551,14.9404896 11.1139551,15.6882336 11.6622942,16.1368216 L14.3044819,18.8288362 L12.1110038,18.8288362 C11.6124916,18.8288362 11.1638793,19.0282167 10.9145745,19.4270021 C10.6653428,19.7759607 10.6653428,20.2246703 10.9145745,20.5736289 C11.1638793,20.9225874 11.6124916,21.1718922 12.1110038,21.1718922 L14.8528453,21.1718922 L14.8528453,22.3183973 L12.1110038,22.3183973 C11.3632599,22.3183973 10.7649965,22.8169338 10.7649965,23.465024 C10.7649965,24.1131142 11.3632599,24.6115291 12.1110038,24.6115291 L14.8528453,24.6115291 L14.8528453,26.9545851 C14.8528453,27.6026754 15.4510113,28.1012119 16.1988526,28.1012119 C16.9465723,28.1012119 17.5447382,27.6026754 17.5447382,26.9545851 L17.5447382,24.6115291 L20.2367528,24.6115291 C20.9844968,24.6115291 21.5827601,24.1131142 21.5827601,23.465024 C21.5827601,22.8169338 21.034421,22.2685947 20.2865797,22.2685947 Z" id="Fill-1" fill="#FFFFFF"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </svg>
+</ng-template>
