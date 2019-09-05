@@ -22,19 +22,19 @@ export default {
     //      name:'widget-weather'
     // },
 
-    input: './out-tsc/lib/projects/widget-personal-info/src/public-api.js',
-    output: {
-        file: 'dist/widget-personal-info.umd.js',
-        format: 'umd',
-         name:'widget-personal-info'
-    },
-
-    // input: './out-tsc/lib/projects/widget-common-functions/src/public-api.js',
+    // input: './out-tsc/lib/projects/widget-personal-info/src/public-api.js',
     // output: {
-    //     file: 'dist/widget-common-functions.umd.js',
+    //     file: 'dist/widget-personal-info.umd.js',
     //     format: 'umd',
-    //      name:'widget-common-functions'
+    //      name:'widget-personal-info'
     // },
+
+    input: './out-tsc/lib/projects/widget-common-functions/src/public-api.js',
+    output: {
+        file: 'dist/widget-common-functions.umd.js',
+        format: 'umd',
+         name:'widget-common-functions'
+    },
 
     globals:{
         echarts:'echarts'

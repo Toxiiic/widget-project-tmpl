@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
@@ -7,10 +7,9 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
   styleUrls: ['./cf-setting.component.css']
 })
 export class CfSettingComponent implements OnInit {
-
+  @Input() modalRef: BsModalRef
 
   constructor(
-    public modalRef: BsModalRef
   ) { }
 
   ngOnInit() {

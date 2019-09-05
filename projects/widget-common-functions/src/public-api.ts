@@ -5,3 +5,4 @@
 export * from './lib/widget-common-functions.service';
 export * from './lib/widget-common-functions.component';
 export * from './lib/widget-common-functions.module';
+export * from './lib/cf-setting/cf-setting.component';

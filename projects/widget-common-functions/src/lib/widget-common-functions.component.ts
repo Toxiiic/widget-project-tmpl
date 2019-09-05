@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChildren, TemplateRef, ViewChild, AfterViewInit } from '@angular/core';
 import { Widget, WidgetBase, WidgetModalService } from '@widget/manifest';
 import { CfSettingComponent } from './cf-setting/cf-setting.component';
+import { BsModalRef } from 'ngx-bootstrap/modal/public_api';
 
 export interface FunctionItem {
   id: string,
@@ -30,8 +31,10 @@ export class WidgetCommonFunctionsComponent extends WidgetBase implements AfterV
   @ViewChild('icon1') icon1
   @ViewChild('icon2') icon2
   @ViewChild('icon3') icon3
-
   icons
+
+  @ViewChild('settingModal') settingModal
+  modalRef: BsModalRef
 
   constructor(
     private modalSvc: WidgetModalService
@@ -54,7 +57,7 @@ export class WidgetCommonFunctionsComponent extends WidgetBase implements AfterV
   }
 
   handleClickSetting () {
-    this.modalSvc.show(CfSettingComponent)
+    this.modalRef = this.modalSvc.show(this.settingModal)
   }
 
 }
