@@ -6,6 +6,7 @@ import { WidgetEchartsModule } from 'projects/widget-echarts/src/public-api';
 import { WidgetWeatherModule } from 'projects/widget-weather/src/public-api';
 import { WidgetPersonalInfoModule } from 'projects/widget-personal-info/src/public-api';
 import { WidgetCommonFunctionsModule } from 'projects/widget-common-functions/src/public-api';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { WidgetCommonFunctionsModule } from 'projects/widget-common-functions/sr
     WidgetWeatherModule,
     WidgetPersonalInfoModule,
     WidgetCommonFunctionsModule,
+    ModalModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

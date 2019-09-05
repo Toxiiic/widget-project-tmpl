@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChildren, TemplateRef, ViewChild, AfterViewInit } from '@angular/core';
-import { Widget, WidgetBase } from '@widget/manifest';
+import { Widget, WidgetBase, WidgetModalService } from '@widget/manifest';
+import { CfSettingComponent } from './cf-setting/cf-setting.component';
 
 export interface FunctionItem {
   id: string,
@@ -32,13 +33,16 @@ export class WidgetCommonFunctionsComponent extends WidgetBase implements AfterV
 
   icons
 
-  constructor() {
+  constructor(
+    private modalSvc: WidgetModalService
+  ) {
     super()
   }
 
   ngOnInit() {
   }
 
+  // @ViewChild 在 ngOnInit 之后，ngAfterViewInit 之前拿到值
   ngAfterViewInit () {
     this.icons = [this.icon1, this.icon2, this.icon3]
     console.log(this.icon1)
@@ -47,6 +51,10 @@ export class WidgetCommonFunctionsComponent extends WidgetBase implements AfterV
   handleClickFunction (fn: FunctionItem) {
     console.log(`点击 ${fn.name}`)
     console.log(this.icons)
+  }
+
+  handleClickSetting () {
+    this.modalSvc.show(CfSettingComponent)
   }
 
 }

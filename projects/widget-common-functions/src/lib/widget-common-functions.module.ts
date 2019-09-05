@@ -1,14 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { WidgetTitleBarModule } from '@widget/manifest';
+import { WidgetTitleBarModule, WidgetModalModule } from '@widget/manifest';
 
 import { WidgetCommonFunctionsComponent } from './widget-common-functions.component';
-
+import { CfSettingComponent } from './cf-setting/cf-setting.component';
+console.log(WidgetTitleBarModule, WidgetModalModule)
 @NgModule({
-  declarations: [WidgetCommonFunctionsComponent],
+  declarations: [WidgetCommonFunctionsComponent, CfSettingComponent],
+  entryComponents: [CfSettingComponent],
   imports: [
+    BrowserModule,
     WidgetTitleBarModule,
-    BrowserModule
+    WidgetModalModule
   ],  
   exports: [WidgetCommonFunctionsComponent]
 })

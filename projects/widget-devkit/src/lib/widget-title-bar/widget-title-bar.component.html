@@ -16,6 +16,7 @@
     <div *ngIf="showMore"
       (onclick)="onClickMore.emit()"
       class="more">查看更多</div>
+      <div (onclick)="onClickSetting.emit()">aa</div>
     <svg class="setting"
       *ngIf="showSetting"
       (onclick)="onClickSetting.emit()"

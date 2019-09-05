@@ -61,6 +61,7 @@ export default {
         "@angular/common/http",
         '@angular/forms',
         '@angular/platform-browser',
+        'ngx-bootstrap/modal',
         '@widget/manifest',
         'echarts',
     ]

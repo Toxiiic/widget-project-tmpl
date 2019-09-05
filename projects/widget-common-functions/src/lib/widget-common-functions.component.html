@@ -18,8 +18,9 @@
 <div style="display: flex;flex-direction: column;height: 100%;">
     <lib-widget-title-bar
         [title]="option.title"
-        showMore="true"
-        showSetting="true"
+        [showMore]="false"
+        [showSetting]="true"
+        (onClickSetting)="handleClickSetting()"
         ></lib-widget-title-bar>
     <div style="overflow-y: scroll;flex: 1 1 auto;">
         <ul style="list-style: none;
