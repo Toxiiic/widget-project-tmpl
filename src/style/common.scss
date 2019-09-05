@@ -1,0 +1,280 @@
+@import "./vars";
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar
+{
+    width: 5px;
+    height: 5px;
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track
+{
+    border-radius: 10px;
+    background: none;
+}
+ 
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    background-color: rgba(0,0,0,.2);
+}
+
+
+// body {
+//     margin: 0;
+//     padding: 0;
+//     font-family: 'PingFangSC-Regular', 'PingFang SC';
+// }
+
+h2 {
+    font-size: 18px;
+    font-weight: normal;
+}
+
+ul, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+.table {
+    th, td {
+        padding: 6px 6px;
+        font-size: 14px;
+    }
+}
+
+label {
+    margin: 0;
+    &.required:before {
+        content: '*';
+        color: red;
+        margin-right: 3px;
+    }
+}
+.form-group {
+    margin-bottom: 10px;
+}
+
+.btn {
+    background: none;
+    border: 1px solid #d9d9d9;
+    padding: 6px 13px;
+    border-radius: 2px;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+    transition: all .2s ease;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
+}
+
+.input-group {
+    display: flex;
+    font-size: 14px;
+    margin-bottom: 15px;
+    position: relative;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    label {
+        width: 30%;
+        text-align: right;
+        padding: 4px 10px;
+        margin-bottom: 0;
+    }
+    .form-control {
+        height: auto;
+        flex: 1 1 auto;
+        // border: 1px solid #cecece;
+        border-radius: 2px;
+        padding: 3px 6px;
+        font-size: 14px;
+    }
+    .form-control.ng-touched.ng-invalid + .invalid-text:after {
+        content: '此项为必填项';
+        color: #e80000;
+        display: block;
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        font-weight: bold;
+        font-size: 12px;
+    }
+}
+
+.modal {
+    .modal-header {
+        border-bottom: none;
+        padding: 5px 15px;
+        h4 {
+            font-size: 15px;
+            font-weight: bold;
+        }
+    }
+    .modal-body {
+        font-size: 13px;
+    }
+    .modal-footer {
+        padding: 5px 15px;
+        // background: $configEditorTitleBackground;
+        border: none;
+        .btn-default {
+            background: white;
+        }
+    }
+}
+
+
+.btn-group {
+    label {
+        &.active {
+            background: $brandBlue;
+            border-color: $brandBlue;
+            color: white;
+        }
+    }
+}
+
+
+.col-form-label {
+    // font-size: 13px;
+    text-align: right;
+}
+.form-control-sm {
+    font-size: 12px;
+    padding: 3px 5px;
+}
+
+.btn {
+    &:hover {
+        color: $brandBlue;
+        border-color: currentColor;
+    }
+
+    &.btn-primary {
+        background: $brandBlue;
+        border: 1px solid $brandBlue;
+        color: white;
+        &:hover {
+            color: white;
+            background: #388effce;
+        }
+    }
+    /* .btn.loading .btn-icon-loading 会旋转 */
+    .btn-icon-loading {
+        font-size: 15px;
+        vertical-align: middle;
+        animation: spinAnim 1s infinite;
+        visibility: hidden;
+        position: absolute;
+        left: 8px;
+    }
+    &.loading {
+        padding-left: 28px;
+        position: relative;
+        .btn-icon-loading {
+            visibility: visible;
+        }
+    }
+}
+
+@keyframes spinAnim {
+    from { }
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+/* ngx bootstrap */
+accordion {
+    accordion-group {
+        .card {
+            border: none;
+        }
+        .panel-heading {
+            padding: 0;
+            border: 0;
+            background: none;
+            cursor: pointer;
+        }
+        .card-body {
+            padding: 0;
+        }
+    }
+}
+
+gridster {
+    background: none!important;
+    gridster-item {
+        box-shadow: 0 0 10px 0 #d0d7e3;
+        border-radius: 3px;
+        &.gridster-item-moving {
+            box-shadow: 0 8px 16px 0 #b2d5ed;
+        }
+        &.gridster-item-resizing {
+            box-shadow: 0 6px 16px 0 #fe256f36;
+        }
+    }
+    .gridster-column {
+        opacity: .3;
+        border-left: $gridsterBorder!important;
+        border-right: $gridsterBorder!important;
+    }
+    .gridster-row {
+        opacity: .3;
+        border-top: $gridsterBorder!important;
+        border-bottom: $gridsterBorder!important;
+    }
+    .gridster-preview {
+        background: #80d1ff2e;
+    }
+}
+
+
+
+/* utilities */
+.bfc {
+    display: flow-root;
+}
+.fs-12 {
+    font-size: 12px;
+}
+.fs-14 {
+    font-size: 14px;
+}
+.fs-16 {
+    font-size: 16px;
+}
+.fs-34 {
+    font-size: 34px;
+}
+.bg-light-gray {
+    background: $bgGray;
+}
+.text-brand {
+    color: $brandBlue;
+}
+
+
+.placeholder {
+    color: #b2bac4;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    padding: 30px 0;
+    border-radius: 3px;
+}
+
+
+
+/* components */
+.checkbox-icon {
+    color: #adb5bd;
+    cursor: pointer;
+    &.checked {
+        color: $brandBlue;
+    }
+}

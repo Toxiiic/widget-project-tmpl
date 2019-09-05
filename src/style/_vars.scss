@@ -1,0 +1,30 @@
+
+/* Override Bootstrap vars */
+$font-family-base: 'PingFangSC-Regular', 'PingFang SC';
+
+$enable-caret:                                true;
+$enable-rounded:                              true;
+$enable-shadows:                              false;
+$enable-gradients:                            false;
+$enable-transitions:                          true;
+$enable-prefers-reduced-motion-media-query:   true;
+$enable-hover-media-query:                    false; // Deprecated, no longer affects any compiled CSS
+$enable-grid-classes:                         true;
+$enable-print-styles:                         true;
+$enable-validation-icons:                     true;
+
+
+
+/* This project only */
+$brandBlue: #388fff;
+$bgGray: #f0f2f5;
+
+// $headerHeight: 56px;
+$panelBlockBorder: #ededed;
+$configEditorTitleBackground: #f2f5f8;
+
+$btnGroupBorderRadius: 3px;
+
+$sectionShadow: 0 10px 10px 0 #0000001c;
+$placeholderGray: #ebeff2;
+$gridsterBorder: 1px dashed #0cb3ff;
