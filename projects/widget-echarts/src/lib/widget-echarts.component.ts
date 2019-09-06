@@ -7,61 +7,92 @@ import { Widget, WidgetBase, WidgetOptions } from '@widget/manifest';
 
 @Widget({name:"echarts"})
 @Component({
-  selector: 'eg-widget-echarts',
+  selector: 'widget-echarts',
   template: `
-    <div id="main" style="height:100%;width:100%;" #chart>
+  <div class="d-flex flex-column h-100">
+    <lib-widget-title-bar
+      [title]="option.title"
+      [showMore]="false"
+      ></lib-widget-title-bar>
+    <div id="main" class="flex-fill" #chart>
     </div>
+  </div>
   `,
   styles: []
 })
 export class WidgetEchartsComponent extends WidgetBase {
   @Input() option: WidgetOptions
+  @Input() mainColor: string = "#2AC6C6"
 
-  chartInstance:echarts.ECharts;
+  chartInstance: echarts.ECharts;
 
-  @ViewChild("chart") 
-  chartContainer:ElementRef;
+  @ViewChild("chart") chartContainer:ElementRef;
   
   constructor(private render2:Renderer2) {
     super()
   }
 
   ngOnInit() {
-    console.log(this.chartContainer);
+    console.log("view init",this.chartContainer);
     this.chartInstance = echarts.init(this.chartContainer.nativeElement);
     this.chartInstance.setOption(this.chartOption);
-
-    // this.render2.listen(this.chartContainer.nativeElement,"onresize",event=>{
-    //   console.log("onresize");
-    //   this.chartInstance.resize();
-    // })
   }
 
-  // ngAfterViewInit(): void {
-  //   console.log("view init",this.chartContainer);
-
-  // }
+  ngAfterViewInit(): void {
+    this.chartInstance.resize();
+  }
   onResized(){
     this.chartInstance.resize();
   }
 
   chartOption:echarts.EChartOption  = {
       title: {
-          text: 'ECharts 入门示例'
+        show: false
       },
       tooltip: {},
-      legend: {
-          data:['销量']
+      // legend: {
+      //     data:['销量']
+      // },
+      grid: {
+        top: 20,
+        bottom: 50,
       },
       xAxis: {
-          data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+        data: ["周一","周二","周三","周四","周五","周六","周日"],
+        axisLine: {
+          show: false
+        },
+        axisTick: {
+          show: false
+        },
       },
-      yAxis: {},
+      yAxis: {
+        axisLine: {
+          show: false
+        },
+        axisTick: {
+          show: false
+        },
+        splitLine: {
+          lineStyle: {
+            color: '#E4EBF0',
+            type: 'dashed'
+          }
+        }
+      },
       series: [{
           name: '销量',
           type: 'bar',
-          data: [5, 20, 36, 10, 10, 20]
-      }]
+          data: [5, 20, 36, 10, 10, 20, 3],
+          barMaxWidth: 12,
+          itemStyle: {
+            barBorderRadius: 5,
+          }
+      }],
+      color: ['#5793f3'],
+      // textStyle: {
+      //   color: '#5793f3'
+      // }
   };
 
 }
