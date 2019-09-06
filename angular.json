@@ -334,6 +334,41 @@
           }
         }
       }
+    },
+    "widget-simple-line": {
+      "root": "projects/widget-simple-line",
+      "sourceRoot": "projects/widget-simple-line/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/widget-simple-line/tsconfig.lib.json",
+            "project": "projects/widget-simple-line/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/widget-simple-line/src/test.ts",
+            "tsConfig": "projects/widget-simple-line/tsconfig.spec.json",
+            "karmaConfig": "projects/widget-simple-line/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/widget-simple-line/tsconfig.lib.json",
+              "projects/widget-simple-line/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "widget-examples"

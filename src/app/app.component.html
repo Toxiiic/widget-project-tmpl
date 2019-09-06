@@ -1,11 +1,21 @@
 <div class="widget-container-debug">
-  <eg-widget-echarts></eg-widget-echarts>
+  <widget-echarts></widget-echarts>
+</div>
+<div class="widget-container-debug">
+  <widget-simple-line
+    [option]="{title: '团队日报提交率'}"
+    tooltipSuffix="a%"
+  ></widget-simple-line>
 </div>
 <div class="widget-container-debug">
   <lib-widget-weather></lib-widget-weather>
 </div>
 <div class="widget-container-debug">
   <lib-widget-personal-info ></lib-widget-personal-info>
+</div>
+<div class="widget-container-debug">
+  <lib-widget-common-functions
+    [option]="{title:'测试标题'}" ></lib-widget-common-functions>
 </div>
 <div class="widget-container-debug">
   <lib-widget-common-functions
