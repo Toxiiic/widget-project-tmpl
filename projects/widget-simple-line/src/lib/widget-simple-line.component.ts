@@ -25,7 +25,7 @@ export class WidgetSimpleLineComponent extends WidgetBase {
   @Input() option: WidgetOptions
   @Input() mainColor: string = "#2AC6C6"
   @Input() tooltipPrefix: string = ""
-  @Input() tooltipSuffix: string = ""
+  @Input() tooltipSuffix: string = "bbb"
 
   chartInstance: echarts.ECharts;
 
@@ -38,18 +38,31 @@ export class WidgetSimpleLineComponent extends WidgetBase {
   ngOnInit() {
     console.log("view init",this.chartContainer);
     this.chartInstance = echarts.init(this.chartContainer.nativeElement);
-    this.chartInstance.setOption(this.lineOptions);
+    this.setChartOption()
   }
 
   ngAfterViewInit(): void {
-    this.chartInstance.setOption(this.lineOptions);
     this.chartInstance.resize();
   }
   onResized(){
     this.chartInstance.resize();
   }
 
-  lineOptions: echarts.EChartOption = {
+  setChartOption () {
+    this.chartInstance.setOption(getChartOption(
+      this.mainColor,
+      this.tooltipPrefix,
+      this.tooltipSuffix
+    ))
+  }
+}
+
+
+function getChartOption (mainColor: string,
+    tooltipPrefix: string,
+    tooltipSuffix: string,
+  ) {
+  return {
     xAxis: {
         type: 'category',
         data: ['9/3', '9/4', '9/5', '9/6', '9/7', '9/8', '9/10'],
@@ -94,34 +107,34 @@ export class WidgetSimpleLineComponent extends WidgetBase {
         alwaysShowContent: true,
         axisPointer: {
           lineStyle: {
-            color: `${this.mainColor}21`
+            color: `${mainColor}21`
           }
         },
         backgroundColor: '#00000000',
         textStyle: {
-            color: this.mainColor,
+            color: mainColor,
             fontSize: 25,
             fontWeight: 'bold',
             
         },
         formatter: `<div style="font-size:15px;font-weight:normal;line-height: 1.5;">{b}</div>
-          ${this.tooltipPrefix}{c}fd${this.tooltipSuffix}`,
+          ${tooltipPrefix}{c}${tooltipSuffix}`,
         extraCssText: 'text-align:center;transform:translateX(-50%);'
     },
     series: [{
-        data: [820, 932, 901, 934, 1290, 1330, 1320],
+        data: [45, 49, 36, 43, 62, 68, 69],
         type: 'line',
         smooth: true,
         symbol: 'circle',
         symbolSize: 6,
         areaStyle: {
-            color: `${this.mainColor}7a`
+            color: `${mainColor}7a`
         },
         lineStyle: {
-            color: this.mainColor
+            color: mainColor
         },
         itemStyle: {
-            color: this.mainColor
+            color: mainColor
         }
     }],
     grid: {
@@ -131,9 +144,7 @@ export class WidgetSimpleLineComponent extends WidgetBase {
         bottom: 0
     },
     textStyle: {
-        color: this.mainColor
+        color: mainColor
     }
-  };
-
-
+  } as echarts.EChartOption
 }
