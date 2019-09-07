@@ -15,7 +15,7 @@
     "terser": "terser widget-echarts.umd.js -c -m -o widget-echarts.umd.min.js",
     "ngc:weather": "ngc -p ./projects/widget-weather/tsconfig.ngc.json",
     "ngc:personal-info": "ngc -p ./projects/widget-personal-info/tsconfig.ngc.json",
-    "ngc:common-functions": "ngc -p ./projects/widget-common-functions/tsconfig.ngc.json"
+    "ngc:simple-line": "ngc -p ./projects/widget-simple-line/tsconfig.ngc.json"
   },
   "private": true,
   "dependencies": {

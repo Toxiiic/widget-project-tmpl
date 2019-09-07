@@ -1,10 +1,20 @@
 <div class="widget-container-debug">
-  <widget-echarts></widget-echarts>
+  <widget-echarts
+    [option]="{title: '我的工时'}"
+    tooltipSuffix="h"
+  ></widget-echarts>
 </div>
 <div class="widget-container-debug">
   <widget-simple-line
     [option]="{title: '团队日报提交率'}"
     tooltipSuffix="%"
+  ></widget-simple-line>
+</div>
+<div class="widget-container-debug">
+  <widget-simple-line
+    [option]="{title: '我的工时'}"
+    tooltipSuffix="h"
+    mainColor="#1687D9"
   ></widget-simple-line>
 </div>
 <div class="widget-container-debug">

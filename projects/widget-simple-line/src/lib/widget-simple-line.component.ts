@@ -25,7 +25,7 @@ export class WidgetSimpleLineComponent extends WidgetBase {
   @Input() option: WidgetOptions
   @Input() mainColor: string = "#2AC6C6"
   @Input() tooltipPrefix: string = ""
-  @Input() tooltipSuffix: string = "bbb"
+  @Input() tooltipSuffix: string = ""
 
   chartInstance: echarts.ECharts;
 
@@ -99,7 +99,6 @@ function getChartOption (mainColor: string,
         axisLabel: {
             inside: true
         }
-
     },
     tooltip: {
         trigger: 'axis',

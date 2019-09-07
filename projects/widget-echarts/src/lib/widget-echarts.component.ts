@@ -54,8 +54,10 @@ export class WidgetEchartsComponent extends WidgetBase {
       //     data:['销量']
       // },
       grid: {
-        top: 20,
-        bottom: 50,
+        top: '10%',
+        right: '10%',
+        bottom: '40',
+        left: '35',
       },
       xAxis: {
         data: ["周一","周二","周三","周四","周五","周六","周日"],
@@ -67,6 +69,9 @@ export class WidgetEchartsComponent extends WidgetBase {
         },
       },
       yAxis: {
+        // axisLabel: {
+        //   inside: true
+        // },
         axisLine: {
           show: false
         },
