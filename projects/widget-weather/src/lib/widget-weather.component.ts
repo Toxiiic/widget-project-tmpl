@@ -12,7 +12,7 @@ export class WidgetWeatherComponent extends WidgetBase {
 
   cityName: string = '济南'
 
-  temperature = '数据加载失败'
+  temperature = '20'
   weather = ''
   windPower = ''
   windDir = ''
@@ -43,7 +43,7 @@ export class WidgetWeatherComponent extends WidgetBase {
       this.weather = today.type
       this.windPower = today.fengli.match(/[\d-]+级/)
       this.windDir = today.fengxiang
-      // this.humidity = cityEle.getAttribute('humidity')
+      this.humidity = '42%'
       this.feelTemp = String(parseInt(this.temperature) + Math.floor(Math.random()*2))
       this.date = today.date
       this.range = `${today.low} ${today.high}`
@@ -62,30 +62,23 @@ export class WidgetWeatherComponent extends WidgetBase {
     })
   }
 
-  // _jsonp (url, callbackParam) {
-  //   return this.http.request('JSONP', url, {
-  //     params: new HttpParams().append(callbackParam, 'JSONP_CALLBACK'),
-  //     observe: 'body',
-  //     responseType: 'json',
-  //   });
-  // }
+//   createXmlDoc(xmlText: string) {
+//     let xmlDoc
+//     // try { //Internet Explorer
+//     //   xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+//     //   xmlDoc.async = "false";
+//     //   xmlDoc.loadXML(xmlText);
+//     // } catch (e) {
+//       try { //Firefox, Mozilla, Opera, etc.
+//         let parser = new DOMParser();
+//         return xmlDoc = parser.parseFromString(xmlText, "text/xml");
+//       }
+//       catch (e) { alert(e.message) }
+//     // }
+//     // try {
+//     //   document.write("xmlDoc 已加载，可以使用。");
+//     // }
+//     // catch (e) { alert(e.message) }
+//   }
 
-  createXmlDoc(xmlText: string) {
-    let xmlDoc
-    // try { //Internet Explorer
-    //   xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
-    //   xmlDoc.async = "false";
-    //   xmlDoc.loadXML(xmlText);
-    // } catch (e) {
-      try { //Firefox, Mozilla, Opera, etc.
-        let parser = new DOMParser();
-        return xmlDoc = parser.parseFromString(xmlText, "text/xml");
-      }
-      catch (e) { alert(e.message) }
-    // }
-    // try {
-    //   document.write("xmlDoc 已加载，可以使用。");
-    // }
-    // catch (e) { alert(e.message) }
-  }
 }
