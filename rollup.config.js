@@ -16,12 +16,12 @@ export default {
     //      name:'widget-echarts'
     // },
     
-    input: './out-tsc/lib/projects/widget-weather/src/public-api.js',
-    output: {
-        file: 'dist/widget-weather.umd.js',
-        format: 'umd',
-         name:'widget-weather'
-    },
+    // input: './out-tsc/lib/projects/widget-weather/src/public-api.js',
+    // output: {
+    //     file: 'dist/widget-weather.umd.js',
+    //     format: 'umd',
+    //      name:'widget-weather'
+    // },
 
     // input: './out-tsc/lib/projects/widget-personal-info/src/public-api.js',
     // output: {
@@ -43,6 +43,13 @@ export default {
     //     format: 'umd',
     //      name:'widget-simple-line'
     // },
+    
+    input: './out-tsc/lib/projects/widget-pie/src/public-api.js',
+    output: {
+        file: 'dist/widget-pie.umd.js',
+        format: 'umd',
+         name:'widget-pie'
+    },
 
     globals:{
         echarts:'echarts'

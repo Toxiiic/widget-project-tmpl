@@ -64,14 +64,16 @@ function getChartOption (
     legend: {
         x : 'center',
         data:['rose1','rose2','rose3','rose4','rose5','rose6','rose7','rose8'],
-        bottom: '5'
+        bottom: '5',
+        itemWidth: 16,
+        itemHeight: 10
     },
     calculable : true,
     series : [
         {
             name:'面积模式',
             type:'pie',
-            radius : [30, 80],
+            radius : ['30%', '65%'],
             center: ['50%', '40%'],
             data:[
                 {value:10, name:'rose1'},
