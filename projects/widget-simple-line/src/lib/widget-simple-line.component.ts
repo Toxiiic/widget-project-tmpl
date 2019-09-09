@@ -27,6 +27,20 @@ export class WidgetSimpleLineComponent extends WidgetBase {
   @Input() tooltipPrefix: string = ""
   @Input() tooltipSuffix: string = ""
 
+  /** 会显示在部件配置检查器中 */
+  // @properties()
+  // props = {
+  //   boolAttr: false,
+  //   boolAttr2: {
+  //     default: false,
+  //     array: true,
+  //     displayName: '布尔属性示例'
+  //   }
+  //   tooltipPrefix: '',
+  //   tooltipSuffix: '',
+  //   color: '',
+  // }
+
   chartInstance: echarts.ECharts;
 
   @ViewChild("chart") chartContainer:ElementRef;
@@ -39,11 +53,9 @@ export class WidgetSimpleLineComponent extends WidgetBase {
     console.log("view init",this.chartContainer);
     this.chartInstance = echarts.init(this.chartContainer.nativeElement);
     this.setChartOption()
-  }
-
-  ngAfterViewInit(): void {
     this.chartInstance.resize();
   }
+
   onResized(){
     this.chartInstance.resize();
   }

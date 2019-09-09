@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Widget, WidgetBase } from '@widget/manifest';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Widget({ name: "weather" })
 @Component({
@@ -10,15 +10,16 @@ import { HttpClient } from '@angular/common/http';
 })
 export class WidgetWeatherComponent extends WidgetBase {
 
-  cityName: string = 'jinan'
+  cityName: string = '济南'
 
-  temperature = '20'
+  temperature = '数据加载失败'
   weather = ''
   windPower = ''
   windDir = ''
   humidity = ''
   feelTemp = ''
   date = ''
+  range = ''
 
   constructor(
     private http: HttpClient
@@ -33,19 +34,41 @@ export class WidgetWeatherComponent extends WidgetBase {
   onResized() { }
 
   renderData() {
-    this.http.get(`weather-api/wmaps/xml/${this.cityName}.xml`, { responseType: 'text' }).subscribe(res => {
-      let xmlDoc = this.createXmlDoc(res)
-      console.log(xmlDoc.querySelectorAll('city')[0])
-      let cityEle = xmlDoc.querySelectorAll('city')[0]
-      this.temperature = cityEle.getAttribute('temNow')
-      this.weather = cityEle.getAttribute('stateDetailed')
-      this.windPower = cityEle.getAttribute('windPower')
-      this.windDir = cityEle.getAttribute('windDir')
-      this.humidity = cityEle.getAttribute('humidity')
+    this.http.jsonp(`http://wthrcdn.etouch.cn/weather_mini?city=${this.cityName}`, 'callback').subscribe(res => {
+      console.log(res)
+      let { forecast, ganmao, yesterday, wendu } = res['data']
+      let today = forecast[0]
+
+      this.temperature = wendu
+      this.weather = today.type
+      this.windPower = today.fengli.match(/[\d-]+级/)
+      this.windDir = today.fengxiang
+      // this.humidity = cityEle.getAttribute('humidity')
       this.feelTemp = String(parseInt(this.temperature) + Math.floor(Math.random()*2))
-      this.date = new Date().toDateString()
+      this.date = today.date
+      this.range = `${today.low} ${today.high}`
+
+
+      // let xmlDoc = this.createXmlDoc(res as string)
+      // console.log(xmlDoc.querySelectorAll('city')[0])
+      // let cityEle = xmlDoc.querySelectorAll('city')[0]
+      // this.temperature = cityEle.getAttribute('temNow')
+      // this.weather = cityEle.getAttribute('stateDetailed')
+      // this.windPower = cityEle.getAttribute('windPower')
+      // this.windDir = cityEle.getAttribute('windDir')
+      // this.humidity = cityEle.getAttribute('humidity')
+      // this.feelTemp = String(parseInt(this.temperature) + Math.floor(Math.random()*2))
+      // this.date = new Date().toDateString()
     })
   }
+
+  // _jsonp (url, callbackParam) {
+  //   return this.http.request('JSONP', url, {
+  //     params: new HttpParams().append(callbackParam, 'JSONP_CALLBACK'),
+  //     observe: 'body',
+  //     responseType: 'json',
+  //   });
+  // }
 
   createXmlDoc(xmlText: string) {
     let xmlDoc

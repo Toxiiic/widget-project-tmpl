@@ -15,8 +15,9 @@ export abstract class WidgetBase implements OnInit {
         title: '未定义标题'
     }
     
-    abstract ngOnInit (): void
+    ngOnInit (): void { }
+    /** 元部件容器组件渲染后调用，应在此处 resize echarts 尺寸 */
+    onContainerInit (): void { }
     onResized (): void { }
-
 
 }
