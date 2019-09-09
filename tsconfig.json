@@ -54,6 +54,12 @@
       ],
       "widget-simple-line/*": [
         "dist/widget-simple-line/*"
+      ],
+      "widget-pie": [
+        "dist/widget-pie"
+      ],
+      "widget-pie/*": [
+        "dist/widget-pie/*"
       ]
     }
   },

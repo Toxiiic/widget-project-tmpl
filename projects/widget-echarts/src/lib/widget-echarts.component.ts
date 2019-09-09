@@ -37,7 +37,7 @@ export class WidgetEchartsComponent extends WidgetBase {
     this.chartInstance = echarts.init(this.chartContainer.nativeElement);
     this.chartInstance.setOption(this.chartOption);
   }
-  ngAfterViewInit(): void {
+  ngAfterViewInit() {
     this.chartInstance.resize();
   }
   onResized(){

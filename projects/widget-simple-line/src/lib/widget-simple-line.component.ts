@@ -1,9 +1,7 @@
 
-import { Component, OnInit, ViewChild, Input, ViewContainerRef, ElementRef, Renderer2 } from '@angular/core';
-
+import { Component, OnInit, ViewChild, Input, ViewContainerRef, ElementRef } from '@angular/core';
 import "echarts";
 import * as echarts from 'echarts';
-// declare var echarts1;
 import { Widget, WidgetBase, WidgetOptions } from '@widget/manifest';
 
 @Widget({name:"simple-line"})
@@ -45,7 +43,7 @@ export class WidgetSimpleLineComponent extends WidgetBase {
 
   @ViewChild("chart") chartContainer:ElementRef;
   
-  constructor(private render2:Renderer2) {
+  constructor() {
     super()
   }
 
@@ -53,9 +51,10 @@ export class WidgetSimpleLineComponent extends WidgetBase {
     console.log("view init",this.chartContainer);
     this.chartInstance = echarts.init(this.chartContainer.nativeElement);
     this.setChartOption()
+  }
+  ngAfterViewInit() {
     this.chartInstance.resize();
   }
-
   onResized(){
     this.chartInstance.resize();
   }

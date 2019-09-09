@@ -8,6 +8,7 @@ import { WidgetPersonalInfoModule } from 'projects/widget-personal-info/src/publ
 import { WidgetCommonFunctionsModule } from 'projects/widget-common-functions/src/public-api';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { WidgetSimpleLineModule } from 'projects/widget-simple-line/src/public-api';
+import { WidgetPieModule } from 'projects/widget-pie/src/public-api';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { WidgetSimpleLineModule } from 'projects/widget-simple-line/src/public-a
     WidgetWeatherModule,
     WidgetPersonalInfoModule,
     WidgetCommonFunctionsModule,
+    WidgetPieModule,
     ModalModule.forRoot(),
   ],
   providers: [],
