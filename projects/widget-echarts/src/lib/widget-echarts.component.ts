@@ -11,7 +11,7 @@ import { Widget, WidgetBase, WidgetOptions } from '@widget/manifest';
   template: `
   <div class="d-flex flex-column h-100">
     <lib-widget-title-bar
-      [title]="option.title"
+      [title]="title"
       [showMore]="false"
       ></lib-widget-title-bar>
     <div id="main" class="flex-fill" #chart>
@@ -21,7 +21,6 @@ import { Widget, WidgetBase, WidgetOptions } from '@widget/manifest';
   styles: []
 })
 export class WidgetEchartsComponent extends WidgetBase {
-  @Input() option: WidgetOptions
   @Input() mainColor: string = "#2AC6C6"
 
   chartInstance: echarts.ECharts;

@@ -10,7 +10,7 @@ import { Widget, WidgetBase, Property, PropertyTypes } from '@widget/manifest';
   template: `
   <div class="d-flex flex-column h-100">
     <lib-widget-title-bar
-      [title]="option.title"
+      [title]="title"
       [showMore]="false"
       ></lib-widget-title-bar>
     <div id="main" class="flex-fill" #chart>
