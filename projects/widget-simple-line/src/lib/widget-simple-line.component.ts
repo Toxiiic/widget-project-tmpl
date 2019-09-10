@@ -2,9 +2,9 @@
 import { Component, OnInit, ViewChild, Input, ViewContainerRef, ElementRef } from '@angular/core';
 import "echarts";
 import * as echarts from 'echarts';
-import { Widget, WidgetBase, WidgetOptions } from '@widget/manifest';
+import { Widget, WidgetBase, Property, PropertyTypes } from '@widget/manifest';
 
-@Widget({name:"simple-line"})
+@Widget({ name:"simple-line" })
 @Component({
   selector: 'widget-simple-line',
   template: `
@@ -20,24 +20,16 @@ import { Widget, WidgetBase, WidgetOptions } from '@widget/manifest';
   styles: []
 })
 export class WidgetSimpleLineComponent extends WidgetBase {
-  @Input() option: WidgetOptions
-  @Input() mainColor: string = "#2AC6C6"
-  @Input() tooltipPrefix: string = ""
-  @Input() tooltipSuffix: string = ""
-
-  /** 会显示在部件配置检查器中 */
-  // @properties()
-  // props = {
-  //   boolAttr: false,
-  //   boolAttr2: {
-  //     default: false,
-  //     array: true,
-  //     displayName: '布尔属性示例'
-  //   }
-  //   tooltipPrefix: '',
-  //   tooltipSuffix: '',
-  //   color: '',
-  // }
+  @Property({
+    type: PropertyTypes.Color,
+    colorOption: {
+      default: '#2AC6C6',
+      type: 'hex'
+    },
+    isArray: false
+  }) mainColor = "#2AC6C6"
+  @Property() tooltipPrefix: string = ""
+  @Property() tooltipSuffix: string = ""
 
   chartInstance: echarts.ECharts;
 
@@ -45,6 +37,7 @@ export class WidgetSimpleLineComponent extends WidgetBase {
   
   constructor() {
     super()
+    console.log(this)
   }
 
   ngOnInit() {
