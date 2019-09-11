@@ -1,0 +1,74 @@
+$brandColor: #388fff;
+
+.common-function-config-modal {
+    max-width: unset;
+    width: 900px;
+}
+
+.modal-body {
+    height: 66vh;
+    .row-header {
+        .title {
+            font-size: 16px;
+        }
+    }
+    .row-main {
+        overflow: hidden;
+        .left {
+            width: 25%;
+            overflow: scroll;
+            height: 100%;
+            .menu1 {
+                padding: 8px 25px;
+                .icon {
+                    width: 16px;
+                    height: 16px;
+                }
+                .right-icon {
+                    float: right;
+                }
+            }
+            ul {
+                li {
+                    padding: 5px 55px;
+                }
+            }
+        }
+        ul.right {
+            overflow: scroll;
+            height: 100%;
+            >li {
+                >ul {
+                    >li {
+                        width: 25%;
+                    }
+                }
+            }
+        }
+    }
+    .row-status {
+        background: #E6F7FF;
+        padding: 6px 15px;
+
+        .clear-btn {
+            font-size: 13px;
+            border: none;
+            padding: 0;
+            background: none;
+        }
+    }
+    .row-selected {
+        ul {
+            li {
+                width: 70px;
+                font-size: 13px;
+                position: relative;
+                .remove-btn {
+                    position: absolute;
+                    top: 10;
+                    right: 0;
+                }
+            }
+        }
+    }
+}

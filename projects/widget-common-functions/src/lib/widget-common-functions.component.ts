@@ -57,7 +57,9 @@ export class WidgetCommonFunctionsComponent extends WidgetBase implements AfterV
   }
 
   handleClickSetting () {
-    this.modalRef = this.modalSvc.show(this.settingModal)
+    this.modalRef = this.modalSvc.show(this.settingModal, {
+      class: 'common-function-config-modal'
+    })
   }
 
 }

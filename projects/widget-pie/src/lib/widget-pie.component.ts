@@ -77,7 +77,8 @@ function getChartOption (
             label: {
               normal: {
                   position: 'inner',
-                  formatter: '{c}'
+                  formatter: '{c}',
+                  color: '#452c73'
               },
               emphasis: {
                   show: true

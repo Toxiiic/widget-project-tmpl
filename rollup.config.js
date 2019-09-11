@@ -77,6 +77,7 @@ export default {
         '@angular/forms',
         '@angular/platform-browser',
         'ngx-bootstrap/modal',
+        'ngx-bootstrap/accordion',
         '@widget/manifest',
         'echarts',
     ]
