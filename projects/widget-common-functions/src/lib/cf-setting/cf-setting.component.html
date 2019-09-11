@@ -16,55 +16,33 @@
   <div class="row-main d-flex flex-fill">
     <div class="left border-right">
       <accordion>
-        <accordion-group>
+        <accordion-group *ngFor="let menu1 of menu12List">
           <div class="menu1 fs-14" accordion-heading>
             <ng-container *ngTemplateOutlet="icon"></ng-container>
-            <span class="font-weight-bold pl-2">工作中心</span>
+            <span class="font-weight-bold pl-2">{{menu1.name}}</span>
             <i class="right-icon material-icons">settings</i>
           </div>
           <ul>
-            <li>网上报账平台</li>
-            <li>网上报账平台</li>
-            <li>网上报账平台</li>
-            <li>网上报账平台</li>
-          </ul>
-        </accordion-group>
-        <accordion-group>
-          <div class="menu1 fs-14" accordion-heading>
-            <ng-container *ngTemplateOutlet="icon"></ng-container>
-            <span class="font-weight-bold pl-2">工作中心</span>
-            <i class="right-icon material-icons">settings</i>
-          </div>
-          <ul>
-            <li>网上报账平台</li>
-            <li>网上报账平台</li>
-            <li>网上报账平台</li>
-            <li>网上报账平台</li>
-          </ul>
-        </accordion-group>
-        <accordion-group>
-          <div class="menu1 fs-14" accordion-heading>
-            <ng-container *ngTemplateOutlet="icon"></ng-container>
-            <span class="font-weight-bold pl-2">工作中心</span>
-            <i class="right-icon material-icons">settings</i>
-          </div>
-          <ul>
-            <li>网上报账平台</li>
-            <li>网上报账平台</li>
-            <li>网上报账平台</li>
-            <li>网上报账平台</li>
+            <li *ngFor="let menu2 of menu1.children"
+              [class.active]="selectedMenu2 && menu2==selectedMenu2"
+              (click)="selectedMenu2=menu2"
+            >{{menu2.name}}</li>
           </ul>
         </accordion-group>
       </accordion>
     </div>
     <ul class="right pl-3 pr-3 pt-2 pb-2 flex-fill">
       <li *ngFor="let menu3 of menu34List">
-        <div class="pt-2 pb-1 border-bottom font-weight-bold">{{menu3.name}}</div>
+        <div class="pt-2 pb-1 mb-1 border-bottom font-weight-bold">{{menu3.name}}</div>
         <ul class="d-flex flex-wrap">
           <li class="fs-14 pt-1 pb-1" *ngFor="let menu4 of menu3.children">
             <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" [id]="menu4.id">
-              <label class="custom-control-label fs-14 pl-1" [for]="menu4.id">{{menu4.name}}</label>
+              <input [checked]='selectedMenu4List.includes(menu4)'
+                (change)="handleChange($event, menu4)"
+                type="checkbox"
+                class="custom-control-input"
+                [id]="menu4.id">
+              <label class="custom-control-label fs-14 pl-0" [for]="menu4.id">{{menu4.name}}</label>
             </div>
           </li>
         </ul>
@@ -75,19 +53,22 @@
   <div class="row-status">
     <i class="material-icons text-brand">settings</i>
     已选择
-    <span class="text-brand">06</span>
+    <span class="text-brand">{{selectedMenu4List.length}}</span>
     项应用
-    <button class="text-brand clear-btn pl-3">清空</button>
+    <button class="text-brand clear-btn pl-3"
+      (click)="selectedMenu4List=[]"
+    >清空</button>
   </div>
 
   <div class="row-selected">
     <ul class="d-flex pl-2 pr-2 flex-wrap">
-      <li *ngFor="let item of selectedList" class="text-center pt-3 pb-3">
+      <li *ngFor="let menu4 of selectedMenu4List" class="text-center pt-3 pb-3">
         <!-- 删除按钮 -->
-        <i class="material-icons remove-btn">settings</i>
+        <i class="material-icons remove-btn"
+          (click)="removeSelectedMenu4(menu4)">settings</i>
         <!-- TODO: img -->
         <ng-container *ngTemplateOutlet="icon"></ng-container>
-        <div class="text-truncate">{{item.name}}</div>
+        <div class="text-truncate">{{menu4.name}}</div>
       </li>
     </ul>
   </div>

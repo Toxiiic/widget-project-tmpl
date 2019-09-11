@@ -14,6 +14,8 @@ $brandColor: #388fff;
     }
     .row-main {
         overflow: hidden;
+        box-shadow: 0 5px 5px 0 #388fff0f;
+        position: relative;
         .left {
             width: 25%;
             overflow: scroll;
@@ -31,6 +33,17 @@ $brandColor: #388fff;
             ul {
                 li {
                     padding: 5px 55px;
+                    transition: all .3s ease;
+                    cursor: pointer;
+                    border-left: 4px solid transparent;
+                    &:hover {
+                        background: transparentize($brandColor, .9) ;
+                    }
+                    &.active {
+                        background: transparentize($brandColor, .9) ;
+                        border-color: $brandColor;
+                        font-weight: bold;
+                    }
                 }
             }
         }
