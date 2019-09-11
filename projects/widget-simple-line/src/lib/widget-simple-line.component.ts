@@ -122,7 +122,7 @@ function getChartOption (mainColor: string,
         },
         formatter: `<div style="font-size:15px;font-weight:normal;line-height: 1.5;">{b}</div>
           ${tooltipPrefix}{c}${tooltipSuffix}`,
-        extraCssText: 'text-align:center;transform:translateX(-50%);'
+        extraCssText: 'text-align:center;transform:translateX(-50%);z-index:10;'
     },
     series: [{
         data: [45, 49, 36, 43, 62, 68, 69],

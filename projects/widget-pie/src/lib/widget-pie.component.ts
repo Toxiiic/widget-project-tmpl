@@ -69,11 +69,21 @@ function getChartOption (
         itemHeight: 10
     },
     calculable : true,
+    
     series : [
         {
             name:'面积模式',
             type:'pie',
-            radius : ['30%', '65%'],
+            label: {
+              normal: {
+                  position: 'inner',
+                  formatter: '{c}'
+              },
+              emphasis: {
+                  show: true
+              }
+            },
+            radius : ['35%', '75%'],
             center: ['50%', '40%'],
             data:[
                 {value:10, name:'rose1'},
