@@ -14,9 +14,10 @@
   </div>
 
   <div class="row-main d-flex flex-fill">
-    <div class="left border-right">
+    <div class="left flex-shrink-0 border-right">
       <accordion class="pt-1 pb-3">
-        <accordion-group *ngFor="let menu1 of menu12List">
+        <accordion-group *ngFor="let menu1 of menu12List"
+          (isOpenChange)="handleMenu1OpenChange($event, menu1)">
           <div class="menu1 fs-14" accordion-heading>
             <ng-container *ngTemplateOutlet="icon"></ng-container>
             <span class="font-weight-bold align-middle pl-2">{{menu1.name}}</span>
@@ -26,7 +27,7 @@
           <ul>
             <li *ngFor="let menu2 of menu1.children"
               [class.active]="selectedMenu2 && menu2==selectedMenu2"
-              (click)="selectedMenu2=menu2"
+              (click)="handleSelectMenu2(menu2) "
             >{{menu2.name}}</li>
           </ul>
         </accordion-group>
@@ -38,12 +39,13 @@
         <ul class="d-flex flex-wrap">
           <li class="fs-14 pt-1 pb-1" *ngFor="let menu4 of menu3.children">
             <div class="custom-control custom-checkbox">
-              <input [checked]='selectedMenu4List.includes(menu4)'
-                (change)="handleChange($event, menu4)"
+              <input [checked]='getMenu4Checked(menu4)'
+                (change)="handleMenu4SelectChange($event, menu4)"
                 type="checkbox"
                 class="custom-control-input"
                 [id]="menu4.id">
-              <label class="custom-control-label fs-14 pl-0" [for]="menu4.id">{{menu4.name}}</label>
+              <label class="custom-control-label fs-14 pl-0"
+                [for]="menu4.id">{{menu4.name}}</label>
             </div>
           </li>
         </ul>
