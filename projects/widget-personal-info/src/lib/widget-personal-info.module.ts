@@ -2,13 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { WidgetPersonalInfoComponent } from './widget-personal-info.component';
 import { WidgetTitleBarModule } from '@widget/manifest';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
   declarations: [WidgetPersonalInfoComponent],
   imports: [
     BrowserModule,
-    WidgetTitleBarModule
+    WidgetTitleBarModule,
+    HttpClientModule
   ],
   exports: [WidgetPersonalInfoComponent]
 })
