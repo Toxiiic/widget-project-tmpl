@@ -210,6 +210,10 @@ export class CfSettingComponent implements OnInit {
 
   constructor(
   ) { }
+  
+  ngOnInit() {
+    
+  }
 
   removeSelectedMenu4 (menu4: Menu4) {
     let index = this.selectedMenu4List.indexOf(menu4)
@@ -229,7 +233,5 @@ export class CfSettingComponent implements OnInit {
     }
   }
 
-  ngOnInit() {
-  }
 
 }

@@ -7,6 +7,7 @@ $brandColor: #388fff;
 
 .modal-body {
     height: 66vh;
+    user-select: none;
     .row-header {
         .title {
             font-size: 16px;
@@ -21,13 +22,14 @@ $brandColor: #388fff;
             overflow: scroll;
             height: 100%;
             .menu1 {
-                padding: 8px 25px;
+                padding: 8px 10px 8px 25px;
                 .icon {
                     width: 16px;
                     height: 16px;
                 }
                 .right-icon {
                     float: right;
+                    color: #b9c7d2;
                 }
             }
             ul {
@@ -46,6 +48,21 @@ $brandColor: #388fff;
                     }
                 }
             }
+            /* accordion 图标 */
+            .icon-opened {
+                display: none;
+            }
+            .icon-closed {
+                display: inline-block;
+            }
+            .panel-open {
+                .icon-opened {
+                    display: inline-block;
+                }
+                .icon-closed {
+                    display: none;
+                }
+            }
         }
         ul.right {
             overflow: scroll;
@@ -54,6 +71,9 @@ $brandColor: #388fff;
                 >ul {
                     >li {
                         width: 25%;
+                        input, label {
+                            cursor: pointer;
+                        }
                     }
                 }
             }
@@ -74,12 +94,20 @@ $brandColor: #388fff;
         ul {
             li {
                 width: 70px;
-                font-size: 13px;
+                // font-size: 14px;
                 position: relative;
                 .remove-btn {
                     position: absolute;
-                    top: 10;
-                    right: 0;
+                    top: 15px;
+                    right: 15px;
+                    opacity: .2;
+                    font-size: 14px;
+                    // transition: color .3s;
+                    cursor: pointer;
+                    &:hover {
+                        opacity: .7;
+                        color: red;
+                    }
                 }
             }
         }

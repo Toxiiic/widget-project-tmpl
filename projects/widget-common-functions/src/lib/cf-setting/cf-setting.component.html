@@ -7,20 +7,21 @@
 </div>
 <div class="modal-body d-flex flex-column p-0">
 
-  <div class="row-header p-2 border-bottom">
-    <i class="material-icons">settings</i>
-    <span class="fs-16 ml-3">我的应用</span>
+  <div class="row-header pt-2 pb-2 pl-3 pr-3 border-bottom">
+    <i class="material-icons align-middle text-brand">widgets</i>
+    <span class="fs-16 ml-2 align-middle">我的应用</span>
     <!-- TODO: 搜索框 -->
   </div>
 
   <div class="row-main d-flex flex-fill">
     <div class="left border-right">
-      <accordion>
+      <accordion class="pt-1 pb-3">
         <accordion-group *ngFor="let menu1 of menu12List">
           <div class="menu1 fs-14" accordion-heading>
             <ng-container *ngTemplateOutlet="icon"></ng-container>
-            <span class="font-weight-bold pl-2">{{menu1.name}}</span>
-            <i class="right-icon material-icons">settings</i>
+            <span class="font-weight-bold align-middle pl-2">{{menu1.name}}</span>
+            <i class="icon-closed right-icon material-icons">chevron_right</i>
+            <i class="icon-opened right-icon material-icons">expand_more</i>
           </div>
           <ul>
             <li *ngFor="let menu2 of menu1.children"
@@ -51,7 +52,7 @@
   </div>
 
   <div class="row-status">
-    <i class="material-icons text-brand">settings</i>
+    <i class="material-icons text-brand fs-16 align-middle">info</i>
     已选择
     <span class="text-brand">{{selectedMenu4List.length}}</span>
     项应用
@@ -62,13 +63,14 @@
 
   <div class="row-selected">
     <ul class="d-flex pl-2 pr-2 flex-wrap">
-      <li *ngFor="let menu4 of selectedMenu4List" class="text-center pt-3 pb-3">
+      <li *ngFor="let menu4 of selectedMenu4List"
+        class="text-center pt-3 pb-3">
         <!-- 删除按钮 -->
         <i class="material-icons remove-btn"
-          (click)="removeSelectedMenu4(menu4)">settings</i>
+          (click)="removeSelectedMenu4(menu4)">cancel</i>
         <!-- TODO: img -->
         <ng-container *ngTemplateOutlet="icon"></ng-container>
-        <div class="text-truncate">{{menu4.name}}</div>
+        <div class="text-truncate pt-1">{{menu4.name}}</div>
       </li>
     </ul>
   </div>
