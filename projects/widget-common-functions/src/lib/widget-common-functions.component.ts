@@ -2,11 +2,12 @@ import { Component, OnInit, ViewChildren, TemplateRef, ViewChild, AfterViewInit 
 import { Widget, WidgetBase, WidgetModalService } from '@widget/manifest';
 import { CfSettingComponent } from './cf-setting/cf-setting.component';
 import { BsModalRef } from 'ngx-bootstrap/modal/public_api';
+import { WidgetCommonFunctionsService, Menu4 } from './widget-common-functions.service';
 
-export interface FunctionItem {
-  id: string,
-  name: string,
-}
+// export interface FunctionItem {
+//   id: string,
+//   name: string,
+// }
 
 @Widget({ name: 'common-functions' })
 @Component({
@@ -16,17 +17,7 @@ export interface FunctionItem {
 })
 export class WidgetCommonFunctionsComponent extends WidgetBase implements AfterViewInit {
 
-  functionList: FunctionItem[] = [
-    { name: '制作订单', id: 'a' },
-    { name: '制作销售订单', id: 'a' },
-    { name: '制作销售订单', id: 'a' },
-    { name: '制作销售订单', id: 'a' },
-    { name: '制作销售单', id: 'a' },
-    { name: '制作销售订单', id: 'a' },
-    { name: '制作销订单', id: 'a' },
-    { name: '制作销售单', id: 'a' },
-    { name: '制作销售订单', id: 'a' },
-  ]
+  functionList: Menu4[] = []
 
   @ViewChild('icon1') icon1
   @ViewChild('icon2') icon2
@@ -37,12 +28,17 @@ export class WidgetCommonFunctionsComponent extends WidgetBase implements AfterV
   modalRef: BsModalRef
 
   constructor(
-    private modalSvc: WidgetModalService
+    private modalSvc: WidgetModalService,
+    private cfSvc: WidgetCommonFunctionsService
   ) {
     super()
   }
 
   ngOnInit() {
+    this.renderData()
+    this.cfSvc.onSaveFinished.subscribe(() => {
+      this.renderData()
+    })
   }
 
   // @ViewChild 在 ngOnInit 之后，ngAfterViewInit 之前拿到值
@@ -51,7 +47,13 @@ export class WidgetCommonFunctionsComponent extends WidgetBase implements AfterV
     console.log(this.icon1)
   }
 
-  handleClickFunction (fn: FunctionItem) {
+  renderData () {
+    this.cfSvc.getCommonMenu4().subscribe(res => {
+      this.functionList = res
+    })
+  }
+
+  handleClickFunction (fn: Menu4) {
     console.log(`点击 ${fn.name}`)
     console.log(this.icons)
   }
@@ -60,6 +62,9 @@ export class WidgetCommonFunctionsComponent extends WidgetBase implements AfterV
     this.modalRef = this.modalSvc.show(this.settingModal, {
       class: 'common-function-config-modal'
     })
+  }
+  handleSaveFinish () {
+    console.log('save finish !!!')
   }
 
 }

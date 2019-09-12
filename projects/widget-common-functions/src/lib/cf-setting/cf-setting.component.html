@@ -43,6 +43,8 @@
                 (change)="handleMenu4SelectChange($event, menu4)"
                 type="checkbox"
                 class="custom-control-input"
+                #self
+                [disabled]="!self.checked && selectedMenu4List.length>=maxSelectedMenu4"
                 [id]="menu4.id">
               <label class="custom-control-label fs-14 pl-0"
                 [for]="menu4.id">{{menu4.name}}</label>
@@ -60,6 +62,7 @@
     项应用
     <button class="text-brand clear-btn pl-3"
       (click)="selectedMenu4List=[]"
+      [disabled]="selectedMenu4List.length==0"
     >清空</button>
   </div>
 
@@ -81,7 +84,10 @@
 <div class="modal-footer">
   <button type="button"
     class="btn btn-primary"
-    [class.loading]="false" >
+    [class.loading]="false"
+    (click)="handleSave()"
+    >
+    <i class="btn-icon-loading material-icons">public</i>
     保存</button>
   <button type="button" class="btn btn-default" (click)="modalRef.hide()">取消</button>
 </div>

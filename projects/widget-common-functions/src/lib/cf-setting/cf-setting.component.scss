@@ -1,5 +1,9 @@
 $brandColor: #388fff;
 
+[disabled] {
+    opacity: .5;
+}
+
 .common-function-config-modal {
     max-width: unset;
     width: 900px;
@@ -88,6 +92,9 @@ $brandColor: #388fff;
             border: none;
             padding: 0;
             background: none;
+            &:focus {
+                outline: none;
+            }
         }
     }
     .row-selected {
