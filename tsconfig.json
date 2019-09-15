@@ -60,6 +60,12 @@
       ],
       "widget-pie/*": [
         "dist/widget-pie/*"
+      ],
+      "number": [
+        "dist/number"
+      ],
+      "number/*": [
+        "dist/number/*"
       ]
     }
   },
