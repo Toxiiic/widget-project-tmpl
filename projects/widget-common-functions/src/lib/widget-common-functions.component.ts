@@ -1,19 +1,12 @@
 import { Component, OnInit, ViewChildren, TemplateRef, ViewChild, AfterViewInit } from '@angular/core';
-import { Widget, WidgetBase, WidgetModalService } from '@widget/manifest';
-import { CfSettingComponent } from './cf-setting/cf-setting.component';
-import { BsModalRef } from 'ngx-bootstrap/modal/public_api';
+import { Widget, WidgetBase, WidgetDevkitService } from '@widget/devkit';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 import { WidgetCommonFunctionsService, Menu4 } from './widget-common-functions.service';
-
-// export interface FunctionItem {
-//   id: string,
-//   name: string,
-// }
 
 @Widget({ name: 'common-functions' })
 @Component({
   selector: 'lib-widget-common-functions',
   templateUrl: './widget-common-functions.component.html',
-  // styles: []
 })
 export class WidgetCommonFunctionsComponent extends WidgetBase implements AfterViewInit {
 
@@ -28,7 +21,7 @@ export class WidgetCommonFunctionsComponent extends WidgetBase implements AfterV
   modalRef: BsModalRef
 
   constructor(
-    private modalSvc: WidgetModalService,
+    private widgetSvc: WidgetDevkitService,
     private cfSvc: WidgetCommonFunctionsService
   ) {
     super()
@@ -55,11 +48,11 @@ export class WidgetCommonFunctionsComponent extends WidgetBase implements AfterV
 
   handleClickFunction (fn: Menu4) {
     console.log(`点击 ${fn.name}`)
-    console.log(this.icons)
+    this.widgetSvc.openMenu(fn.id)
   }
 
   handleClickSetting () {
-    this.modalRef = this.modalSvc.show(this.settingModal, {
+    this.modalRef = this.widgetSvc.openModal(this.settingModal, {
       class: 'common-function-config-modal'
     })
   }
