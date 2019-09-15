@@ -2,7 +2,7 @@
 import { Component, OnInit, ViewChild, Input, ViewContainerRef, ElementRef, Renderer2 } from '@angular/core';
 import "echarts";
 import * as echarts from 'echarts';
-import { Widget, WidgetBase, WidgetOptions } from '@widget/manifest';
+import { Widget, WidgetBase } from '@widget/devkit';
 
 @Widget({name:"pie"})
 @Component({

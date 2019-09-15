@@ -3,7 +3,8 @@ import commonjs from 'rollup-plugin-commonjs';
 // import typescript from 'rollup-plugin-typescript2';
 // let graph = require("rollup-plugin-graph");
 // let graphOptions = {prune: true};
-import { uglify } from "rollup-plugin-uglify";
+// import { uglify } from "rollup-plugin-uglify";
+import uglify from "rollup-plugin-uglify-es";
 
 export default {
     // input: './widget-aot-pkg-demo/widget-aot-pkg-demo.ngfactory.js',
@@ -63,11 +64,11 @@ export default {
         }),
         commonjs(),
         
-        // uglify(),
         // graph(graphOptions)
         // typescript({
         //     typescript: require('typescript')
         // })
+        // uglify(),
     ],
     external: [
         // 'plugins-core',
@@ -76,9 +77,14 @@ export default {
         "@angular/common/http",
         '@angular/forms',
         '@angular/platform-browser',
+        '@angular/platform-browser/animations',
+        '@angular/animations',
+        "@angular/animations/browser",
         'ngx-bootstrap/modal',
         'ngx-bootstrap/accordion',
-        '@widget/manifest',
+        "ngx-bootstrap/collapse",
+        '@widget/devkit',
         'echarts',
+        // '../../../../node_modules/@widget/devkit/widget-manifest.ngfactory'
     ]
 }

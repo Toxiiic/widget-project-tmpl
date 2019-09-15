@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
-import { WidgetTitleBarModule, WidgetModalModule } from '@widget/manifest';
+import { WidgetTitleBarModule, WidgetDevkitModule } from '@widget/devkit';
 
 import { WidgetCommonFunctionsComponent } from './widget-common-functions.component';
 import { CfSettingComponent } from './cf-setting/cf-setting.component';
@@ -15,7 +15,7 @@ import { CfSettingComponent } from './cf-setting/cf-setting.component';
     BrowserAnimationsModule,
     AccordionModule.forRoot(),
     WidgetTitleBarModule,
-    WidgetModalModule
+    WidgetDevkitModule
   ],  
   exports: [WidgetCommonFunctionsComponent]
 })

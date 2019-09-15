@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { WidgetEchartsComponent } from './widget-echarts.component';
-import { WidgetTitleBarModule } from '@widget/manifest';
+import { WidgetTitleBarModule } from '@widget/devkit';
 
 @NgModule({
   declarations: [WidgetEchartsComponent],

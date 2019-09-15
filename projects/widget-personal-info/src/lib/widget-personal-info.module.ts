@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { WidgetPersonalInfoComponent } from './widget-personal-info.component';
-import { WidgetTitleBarModule } from '@widget/manifest';
+import { WidgetTitleBarModule } from '@widget/devkit';
 import { HttpClientModule } from '@angular/common/http';
 
 

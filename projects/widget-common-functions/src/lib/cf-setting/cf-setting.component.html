@@ -27,17 +27,18 @@
           <ul>
             <li *ngFor="let menu2 of menu1.children"
               [class.active]="selectedMenu2 && menu2==selectedMenu2"
-              (click)="handleSelectMenu2(menu2) "
+              (click)="handleSelectMenu2(menu2)"
             >{{menu2.name}}</li>
           </ul>
         </accordion-group>
       </accordion>
     </div>
+
     <ul class="right pl-3 pr-3 pt-2 pb-2 flex-fill">
       <li *ngFor="let menu3 of menu34List">
         <div class="pt-2 pb-1 mb-1 border-bottom font-weight-bold">{{menu3.name}}</div>
         <ul class="d-flex flex-wrap">
-          <li class="fs-14 pt-1 pb-1" *ngFor="let menu4 of menu3.children">
+          <li class="fs-14 p-1" *ngFor="let menu4 of menu3.children">
             <div class="custom-control custom-checkbox">
               <input [checked]='getMenu4Checked(menu4)'
                 (change)="handleMenu4SelectChange($event, menu4)"
@@ -91,7 +92,6 @@
     保存</button>
   <button type="button" class="btn btn-default" (click)="modalRef.hide()">取消</button>
 </div>
-
 
 
 <ng-template #icon>
