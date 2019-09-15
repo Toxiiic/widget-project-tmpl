@@ -1,15 +1,18 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { of } from 'rxjs';
+import { delay } from 'rxjs/operators'
 
 export interface Menu1 {
   id?: string,
   name: string,
+  loadingChildren?: boolean,
   children?: Menu2[]
 }
 export interface Menu2 {
   id: string,
   name: string,
+  loadingChildren?: boolean,
 }
 export interface Menu3 {
   id?: string,
@@ -39,16 +42,16 @@ export class WidgetCommonFunctionsService {
 
   
   getAllMenu1 () {
-    return this.http.get<any>(baseUrl+url+'0')
-    // return of(menu1)
+    // return this.http.get<any>(baseUrl+url+'0')
+    return of(menu1)
   }
   getMenu2 (menu1Id: string) {
-    return this.http.get<any>(baseUrl+url+menu1Id)
-    // return of(menu2)
+    // return this.http.get<any>(baseUrl+url+menu1Id)
+    return of(menu2).pipe(delay(2000))
   }
   getMenu34 (menu2Id: string) {
-    return this.http.get<any>(baseUrl+url+menu2Id)
-    // return of(menu34List)
+    // return this.http.get<any>(baseUrl+url+menu2Id)
+    return of(menu34List).pipe(delay(2000))
   }
   getCommonMenu4 () {
     // return of(selectedMenu4List)

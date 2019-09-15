@@ -7,7 +7,7 @@ import { Menu1, Menu2, Menu3, Menu4, WidgetCommonFunctionsService } from '../wid
 @Component({
   selector: 'lib-cf-setting',
   templateUrl: './cf-setting.component.html',
-  styleUrls: ['./cf-setting.component.css'],
+  styleUrls: ['./cf-setting.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class CfSettingComponent implements OnInit {
@@ -42,7 +42,6 @@ export class CfSettingComponent implements OnInit {
     })
   }
   getMenu4Checked (menu4: Menu4) {
-    // console.log('get ....')
     return !!this.selectedMenu4List.find(selectedMenu4 => menu4.id==selectedMenu4.id)
   }
 
@@ -57,19 +56,18 @@ export class CfSettingComponent implements OnInit {
   handleMenu1OpenChange (open: boolean, menu1: Menu1) {
     // 如果是 关闭 或者 孩子已经加载出来了，就不用再加载了
     if(!open || menu1.children) return
-    // TODO: laoding
+    menu1.loadingChildren = true
     this.cfService.getMenu2(menu1.id).subscribe(menu2List => {
-      // TODO: end laoding
+      menu1.loadingChildren = false
       menu1.children = menu2List
     })
   }
   handleSelectMenu2 (menu2: Menu2) {
     this.selectedMenu2 = menu2
-    // TODO: laoding
+    menu2.loadingChildren = true
     this.cfService.getMenu34(menu2.id).subscribe(menu34List => {
-      // TODO: end laoding
+      menu2.loadingChildren = false
       this.menu34List = menu34List
-      console.log(this.menu34List)
     })
   }
 
@@ -81,12 +79,11 @@ export class CfSettingComponent implements OnInit {
     }
   }
   handleSave () {
+    this.saveLoading = true
     this.cfService.saveSelectedMenu4(this.selectedMenu4List).subscribe(res => {
-      this.saveLoading = true
       if(res == 'success') {
         // TODO: 前端成功提示
         this.saveLoading = false
-        // this.modalRef['onSave']()
         this.modalRef.hide()
         this.cfService.onSaveFinished.emit()
       }

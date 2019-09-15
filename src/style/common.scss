@@ -180,6 +180,13 @@ label {
         }
     }
 }
+.loading-spin {
+    visibility: hidden;
+    &.loading {
+        animation: spinAnim 1s infinite;
+        visibility: visible;
+    }
+}
 
 @keyframes spinAnim {
     from { }

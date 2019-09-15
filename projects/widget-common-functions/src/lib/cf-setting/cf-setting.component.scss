@@ -38,7 +38,7 @@ $brandColor: #388fff;
             }
             ul {
                 li {
-                    padding: 5px 55px;
+                    padding: 5px 12px 5px 55px;
                     transition: all .3s ease;
                     cursor: pointer;
                     border-left: 4px solid transparent;
@@ -119,4 +119,10 @@ $brandColor: #388fff;
             }
         }
     }
+}
+
+.loading-spin {
+    color: #b2bac4;
+    font-size: 18px;
+    margin-top: 1px;
 }

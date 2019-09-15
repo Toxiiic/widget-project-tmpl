@@ -23,12 +23,17 @@
             <span class="font-weight-bold align-middle pl-2">{{menu1.name}}</span>
             <i class="icon-closed right-icon material-icons">chevron_right</i>
             <i class="icon-opened right-icon material-icons">expand_more</i>
+            <i class="loading-spin material-icons float-right"
+              [class.loading]="menu1.loadingChildren">public</i>
           </div>
           <ul>
             <li *ngFor="let menu2 of menu1.children"
               [class.active]="selectedMenu2 && menu2==selectedMenu2"
               (click)="handleSelectMenu2(menu2)"
-            >{{menu2.name}}</li>
+            >{{menu2.name}}
+              <i class="loading-spin material-icons float-right"
+                [class.loading]="menu2.loadingChildren">public</i>
+            </li>
           </ul>
         </accordion-group>
       </accordion>
@@ -85,7 +90,8 @@
 <div class="modal-footer">
   <button type="button"
     class="btn btn-primary"
-    [class.loading]="false"
+    [disabled]="saveLoading"
+    [class.loading]="saveLoading"
     (click)="handleSave()"
     >
     <i class="btn-icon-loading material-icons">public</i>
