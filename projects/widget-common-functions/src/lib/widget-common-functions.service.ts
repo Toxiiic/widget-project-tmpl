@@ -22,9 +22,9 @@ export interface Menu4 {
 }
 
 const baseUrl = (window['DashboardApi'] && window['DashboardApi'].baseUrl)
-|| `http://10.25.11.80:8081`
+|| 'http://10.25.11.80:8081/api/runtime/epp/v1.0/'
 
-const url = `/api/runtime/epp/v1.0/func/`
+const url = `func/`
 
 @Injectable({
   providedIn: 'root'
@@ -55,7 +55,7 @@ export class WidgetCommonFunctionsService {
     return this.http.get<any>(baseUrl+url+'userfunc')
   }
   saveSelectedMenu4 (selectedMenu4List: Menu4[]) {
-    return this.http.put<any>(baseUrl+url,
+    return this.http.put(baseUrl+url,
       selectedMenu4List.map(m4 => m4.id),
       { responseType: 'text' }
     )

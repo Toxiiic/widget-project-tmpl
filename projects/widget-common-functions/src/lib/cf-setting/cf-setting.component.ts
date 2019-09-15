@@ -7,7 +7,7 @@ import { Menu1, Menu2, Menu3, Menu4, WidgetCommonFunctionsService } from '../wid
 @Component({
   selector: 'lib-cf-setting',
   templateUrl: './cf-setting.component.html',
-  styleUrls: ['./cf-setting.component.scss'],
+  styleUrls: ['./cf-setting.component.css'],
   encapsulation: ViewEncapsulation.None
 })
 export class CfSettingComponent implements OnInit {

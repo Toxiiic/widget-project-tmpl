@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Widget, WidgetBase } from '@widget/manifest';
-import { Property } from '@widget/manifest';
+import { Widget, WidgetBase } from '@widget/devkit';
+import { Property } from '@widget/devkit';
 
 @Widget({
   name: 'personal-info'
@@ -18,15 +18,16 @@ export class WidgetPersonalInfoComponent extends WidgetBase {
   }) avatarUrl = 'http://y2.ifengimg.com/a/2015_51/08c3c119dc21e81.jpg'
   @Property({
     tip: '无名称数据时，显示在名称位置的字符'
-  }) name = '未设置名称'
+  }) name = '马斯克'
   @Property({
     tip: '无岗位数据时，显示在岗位位置的字符'
-  }) pos = '无岗位信息'
+  }) pos = '前端技术专家'
   @Property({
     tip: '无组织数据时，显示在名称位置的字符'
-  }) org = '我走过的路，都是希望的路~'
+  }) org = '浪潮集团-浪潮国际-平台与技术部'
 
-  baseUrl = window['DashboardApi']!.baseUrl || 'http://10.25.11.80:8081'
+  baseUrl = (window['DashboardApi'] && window['DashboardApi'].baseUrl)
+    || 'http://10.25.11.80:8081/api/runtime/epp/v1.0/'
 
   constructor(
     private http: HttpClient
@@ -40,7 +41,7 @@ export class WidgetPersonalInfoComponent extends WidgetBase {
     console.log('filter change')
   }
   ngOnInit() {
-    this.http.get<any>(`${this.baseUrl}/api/runtime/epp/v1.0/userinfo/`).subscribe(res => {
+    this.http.get<any>(`${this.baseUrl}userinfo/`).subscribe(res => {
       console.log(res)
       this.avatarUrl = res.avatarUrl || this.avatarUrl,
       this.name = res.name || this.name,
