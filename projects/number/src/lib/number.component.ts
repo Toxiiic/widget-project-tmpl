@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Widget, WidgetBase, Property } from '@widget/devkit';
+import { Widget, WidgetBase, Property } from '@toxiic/widget-devkit';
 
 @Widget({ name: 'number' })
 @Component({

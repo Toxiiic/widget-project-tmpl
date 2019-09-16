@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild, Input, ViewContainerRef, ElementRef, Rend
 import "echarts";
 import * as echarts from 'echarts';
 // declare var echarts1;
-import { Widget, WidgetBase } from '@widget/devkit';
+import { Widget, WidgetBase } from '@toxiic/widget-devkit';
 
 @Widget({name:"echarts"})
 @Component({

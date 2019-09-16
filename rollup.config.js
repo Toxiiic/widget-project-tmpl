@@ -90,8 +90,8 @@ export default {
         'ngx-bootstrap/modal',
         'ngx-bootstrap/accordion',
         "ngx-bootstrap/collapse",
-        '@widget/devkit',
+        '@toxiic/widget-devkit',
         'echarts',
-        // '../../../../node_modules/@widget/devkit/widget-manifest.ngfactory'
+        // '../../../../node_modules/@toxiic/widget-devkit/widget-manifest.ngfactory'
     ]
 }

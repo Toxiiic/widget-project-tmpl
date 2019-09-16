@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Widget, WidgetBase } from '@widget/devkit';
+import { Widget, WidgetBase } from '@toxiic/widget-devkit';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Widget({ name: "weather" })

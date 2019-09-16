@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChildren, TemplateRef, ViewChild, AfterViewInit } from '@angular/core';
-import { Widget, WidgetBase, WidgetDevkitService } from '@widget/devkit';
+import { Widget, WidgetBase, WidgetDevkitService } from '@toxiic/widget-devkit';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { WidgetCommonFunctionsService, Menu4 } from './widget-common-functions.service';
 

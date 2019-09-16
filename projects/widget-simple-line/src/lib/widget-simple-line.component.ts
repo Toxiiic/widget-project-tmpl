@@ -2,7 +2,7 @@
 import { Component, OnInit, ViewChild, Input, ViewContainerRef, ElementRef } from '@angular/core';
 import "echarts";
 import * as echarts from 'echarts';
-import { Widget, WidgetBase, Property, PropertyTypes } from '@widget/devkit';
+import { Widget, WidgetBase, Property, PropertyTypes } from '@toxiic/widget-devkit';
 
 @Widget({ name:"simple-line" })
 @Component({

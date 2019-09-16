@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { WidgetSimpleLineComponent } from './widget-simple-line.component';
-import { WidgetTitleBarModule } from '@widget/devkit';
+import { WidgetTitleBarModule } from '@toxiic/widget-devkit';
 
 @NgModule({
   declarations: [WidgetSimpleLineComponent],
