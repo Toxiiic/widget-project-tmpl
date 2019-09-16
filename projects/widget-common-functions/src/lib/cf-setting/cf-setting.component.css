@@ -5,11 +5,11 @@
 
 .common-function-config-modal {
   max-width: unset;
-  width: 900px;
+  width: 950px;
 }
 
 .modal-body {
-  height: 66vh;
+  height: 500px;
   user-select: none;
 }
 .modal-body .row-header .title {
@@ -38,7 +38,7 @@
   color: #b9c7d2;
 }
 .modal-body .row-main .left ul li {
-  padding: 5px 55px;
+  padding: 5px 12px 5px 55px;
   transition: all 0.3s ease;
   cursor: pointer;
   border-left: 4px solid transparent;
@@ -101,6 +101,20 @@
 .modal-body .row-selected ul li .remove-btn:hover {
   opacity: 0.7;
   color: red;
+}
+
+.loading-spin {
+  color: #b2bac4;
+  font-size: 18px;
+  margin-top: 1px;
+}
+
+.loading-spin {
+  visibility: hidden;
+}
+.loading-spin.loading {
+  animation: spinAnim 1s infinite;
+  visibility: visible;
 }
 
 /*# sourceMappingURL=cf-setting.component.css.map */

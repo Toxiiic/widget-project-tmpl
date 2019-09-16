@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Widget, WidgetBase } from '@widget/devkit';
-import { Property } from '@widget/devkit';
+import { Widget, WidgetBase, Property } from '@widget/devkit';
 
 @Widget({
   name: 'personal-info'

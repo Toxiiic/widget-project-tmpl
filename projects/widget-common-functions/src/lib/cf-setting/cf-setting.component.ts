@@ -1,13 +1,13 @@
 import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
-import { HttpClient } from '@angular/common/http';
-import { of } from 'rxjs';
+// import { HttpClient } from '@angular/common/http';
+// import { of } from 'rxjs';
 import { Menu1, Menu2, Menu3, Menu4, WidgetCommonFunctionsService } from '../widget-common-functions.service';
 
 @Component({
   selector: 'lib-cf-setting',
   templateUrl: './cf-setting.component.html',
-  styleUrls: ['./cf-setting.component.scss'],
+  styleUrls: ['./cf-setting.component.css'],
   encapsulation: ViewEncapsulation.None
 })
 export class CfSettingComponent implements OnInit {

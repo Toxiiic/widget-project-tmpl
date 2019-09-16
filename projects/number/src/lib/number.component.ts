@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Property } from '@widget/devkit';
+import { Widget, WidgetBase, Property } from '@widget/devkit';
 
+@Widget({ name: 'number' })
 @Component({
   selector: 'widget-number',
   templateUrl: './number.component.html',

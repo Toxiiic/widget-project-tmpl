@@ -1,7 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { of } from 'rxjs';
-import { delay } from 'rxjs/operators'
+// import { of } from 'rxjs';
+// import { delay } from 'rxjs/operators'
 
 export interface Menu1 {
   id?: string,
@@ -42,16 +42,16 @@ export class WidgetCommonFunctionsService {
 
   
   getAllMenu1 () {
-    // return this.http.get<any>(baseUrl+url+'0')
-    return of(menu1)
+    return this.http.get<any>(baseUrl+url+'0')
+    // return of(menu1)
   }
   getMenu2 (menu1Id: string) {
-    // return this.http.get<any>(baseUrl+url+menu1Id)
-    return of(menu2).pipe(delay(2000))
+    return this.http.get<any>(baseUrl+url+menu1Id)
+    // return of(menu2).pipe(delay(2000))
   }
   getMenu34 (menu2Id: string) {
-    // return this.http.get<any>(baseUrl+url+menu2Id)
-    return of(menu34List).pipe(delay(2000))
+    return this.http.get<any>(baseUrl+url+menu2Id)
+    // return of(menu34List).pipe(delay(2000))
   }
   getCommonMenu4 () {
     // return of(selectedMenu4List)
@@ -67,124 +67,124 @@ export class WidgetCommonFunctionsService {
 }
 
 
-const menu1 = [{
-  id: 'a1',
-  name: '事项申请'
-}, {
-  id: 'a2',
-  name: '事项申请'
-}, {
-  id: 'a3',
-  name: '事项申请'
-}, {
-  id: 'a4',
-  name: '事项申请'
-}]
-const menu2 = [{
-  id: 'b1',
-  name: '事项申请b'
-}, {
-  id: 'b2',
-  name: '事项申请b'
-}, {
-  id: 'b3',
-  name: '事项申请b'
-}, {
-  id: 'b4',
-  name: '事项申请b'
-}]
-const menu34List = [{
-  name: '事项申请',
-  children: [{
-    id: '2',
-    name: '交通费销单',
-  }, {
-    id: '3',
-    name: '交通费报销单',
-  }, {
-    id: '4',
-    name: '交通销单',
-  }, {
-    id: '5',
-    name: '交通费销单',
-  }, {
-    id: '6',
-    name: '交通费报销单',
-  }, {
-    id: '7',
-    name: '交通费报销单',
-  }]
-}, {
-  name: '事项申请',
-  children: [{
-    id: '8',
-    name: '交通费销单',
-  }, {
-    id: 'a',
-    name: '交通费报销单',
-  }, {
-    id: 'a',
-    name: '交通费报单',
-  }]
-}, {
-  name: '事项申请',
-  children: [{
-    id: 'a',
-    name: '交通销单',
-  }, {
-    id: 'a',
-    name: '交通费报销单',
-  }, {
-    id: 'a',
-    name: '交通费报销单',
-  }, {
-    id: 'a',
-    name: '交通费报销单',
-  }, {
-    id: 'a',
-    name: '交通费报销单',
-  }, {
-    id: 'a',
-    name: '交通费报销单',
-  }]
-}, {
-  name: '事项申请',
-  children: [{
-    id: 'a',
-    name: '交通销单',
-  }, {
-    id: 'a',
-    name: '交通费报销单',
-  }, {
-    id: 'a',
-    name: '交通费报销单',
-  }, {
-    id: 'a',
-    name: '交通费报销单',
-  }, {
-    id: 'a',
-    name: '交通费报销单',
-  }, {
-    id: 'a',
-    name: '交通费报销单',
-  }]
-}]
-const selectedMenu4List = [{
-  id: 'a',
-  name: '交通费报销单',
-}, {
-  id: '2',
-  name: '交通费报销单',
-}, {
-  id: '3',
-  name: '交通费单',
-}, {
-  id: '4',
-  name: '交通费报销单',
-}, {
-  id: '5',
-  name: '交通费报销',
-}, {
-  id: '6',
-  name: '交通费报',
-}]
+// const menu1 = [{
+//   id: 'a1',
+//   name: '事项申请'
+// }, {
+//   id: 'a2',
+//   name: '事项申请'
+// }, {
+//   id: 'a3',
+//   name: '事项申请'
+// }, {
+//   id: 'a4',
+//   name: '事项申请'
+// }]
+// const menu2 = [{
+//   id: 'b1',
+//   name: '事项申请b'
+// }, {
+//   id: 'b2',
+//   name: '事项申请b'
+// }, {
+//   id: 'b3',
+//   name: '事项申请b'
+// }, {
+//   id: 'b4',
+//   name: '事项申请b'
+// }]
+// const menu34List = [{
+//   name: '事项申请',
+//   children: [{
+//     id: '2',
+//     name: '交通费销单',
+//   }, {
+//     id: '3',
+//     name: '交通费报销单',
+//   }, {
+//     id: '4',
+//     name: '交通销单',
+//   }, {
+//     id: '5',
+//     name: '交通费销单',
+//   }, {
+//     id: '6',
+//     name: '交通费报销单',
+//   }, {
+//     id: '7',
+//     name: '交通费报销单',
+//   }]
+// }, {
+//   name: '事项申请',
+//   children: [{
+//     id: '8',
+//     name: '交通费销单',
+//   }, {
+//     id: 'a',
+//     name: '交通费报销单',
+//   }, {
+//     id: 'a',
+//     name: '交通费报单',
+//   }]
+// }, {
+//   name: '事项申请',
+//   children: [{
+//     id: 'a',
+//     name: '交通销单',
+//   }, {
+//     id: 'a',
+//     name: '交通费报销单',
+//   }, {
+//     id: 'a',
+//     name: '交通费报销单',
+//   }, {
+//     id: 'a',
+//     name: '交通费报销单',
+//   }, {
+//     id: 'a',
+//     name: '交通费报销单',
+//   }, {
+//     id: 'a',
+//     name: '交通费报销单',
+//   }]
+// }, {
+//   name: '事项申请',
+//   children: [{
+//     id: 'a',
+//     name: '交通销单',
+//   }, {
+//     id: 'a',
+//     name: '交通费报销单',
+//   }, {
+//     id: 'a',
+//     name: '交通费报销单',
+//   }, {
+//     id: 'a',
+//     name: '交通费报销单',
+//   }, {
+//     id: 'a',
+//     name: '交通费报销单',
+//   }, {
+//     id: 'a',
+//     name: '交通费报销单',
+//   }] 
+// }]
+// const selectedMenu4List = [{
+//   id: 'a',
+//   name: '交通费报销单',
+// }, {
+//   id: '2',
+//   name: '交通费报销单',
+// }, {
+//   id: '3',
+//   name: '交通费单',
+// }, {
+//   id: '4',
+//   name: '交通费报销单',
+// }, {
+//   id: '5',
+//   name: '交通费报销',
+// }, {
+//   id: '6',
+//   name: '交通费报',
+// }]

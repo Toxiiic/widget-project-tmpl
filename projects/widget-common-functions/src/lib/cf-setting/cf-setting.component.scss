@@ -6,11 +6,11 @@ $brandColor: #388fff;
 
 .common-function-config-modal {
     max-width: unset;
-    width: 900px;
+    width: 950px;
 }
 
 .modal-body {
-    height: 66vh;
+    height: 500px;
     user-select: none;
     .row-header {
         .title {
@@ -125,4 +125,11 @@ $brandColor: #388fff;
     color: #b2bac4;
     font-size: 18px;
     margin-top: 1px;
+}
+.loading-spin {
+    visibility: hidden;
+    &.loading {
+        animation: spinAnim 1s infinite;
+        visibility: visible;
+    }
 }
