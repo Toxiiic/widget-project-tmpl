@@ -1,9 +1,26 @@
+<lib-widget-title-bar
+    title = '待办任务'
+    showTitle= true
+    showMore = true >
+    <!-- <ng-template #rightTemplate>
+        <lib-widget-title-bar-select
+            [filterOptions]="[{name: '1', value: '1'}, {name: '2', value: '2'}]"
+            (onFilterChange)="handleFilterChange()"
+        ></lib-widget-title-bar-select>
+        <lib-widget-title-bar-select
+            [filterOptions]="[{name: '1', value: '1'}, {name: '2', value: '2'}]"
+            (onFilterChange)="handleFilterChange()"
+        ></lib-widget-title-bar-select>
+    </ng-template> -->
+</lib-widget-title-bar>
+
 <div class="main">
-  <div style="height: 56px"></div>
+  
   <div>
     <ul class="taskTypeList">
-      <li *ngFor="let type of types ; let i = index" [ngClass]="{'taskTypeMark': i==0}">
-        <span>{{type}}</span>
+      <li *ngFor="let type of types ; let i = index" [ngClass]="{'taskTypeMark': i==style}" (click)="selectType(i)">
+        <span>{{type.name}}</span>
+        <span *ngIf="i !== style">·{{type.total}}</span>
       </li>
     </ul>
     <div style="clear: both"></div>
@@ -11,15 +28,15 @@
   <hr style="margin: 12px 1px 0px 1px;">
 
   <div>
-   <div class="taskDetail" *ngFor="let task of tasks; let i = index">
-     <div class="taskIndex" >
-      {{i}}
-     </div>
-     <div style="float: left">
+   <div class="taskDetail" *ngFor="let task of selectTasks; let i = index" >
+      <div class="taskIndex" >
+          {{i}}
+      </div>
+      <div style="float: left">
         <img class="imgUser" [src]= "task.imgUrl" />
-     </div>
-     <div class="taskData">
-       <div style="float: left;width: 700px;">
+      </div>
+      <div class="taskData">
+        <div style="float: left;width: 700px;">
           <div class="taskDataTop">
               <span class="taskDataName">@{{task.name}}</span> 
               <span class="taskDataOrder">{{task.orderName}}: {{task.orderCode}}</span>
@@ -29,16 +46,15 @@
                 <span class="taskDataSubmTime">部门：{{task.orgName}}</span>
                 <span class="taskDataSubmTime">金额：{{task.money}}</span> 
             </div>
-       </div> 
-       <div class="taskDataMore">
+        </div> 
+        <div class="taskDataMore">
           <i class="material-icons">
               more_horiz
           </i>
-       </div>
-     </div>
-     
-    
-     <div style="clear: both;"></div>
+        </div>
+      </div>
    </div>
+     <div style="clear: both;"></div>
   </div>
+
 </div>
