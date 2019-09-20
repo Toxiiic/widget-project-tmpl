@@ -59,11 +59,11 @@ function getChartOption (
   return {
     tooltip : {
         trigger: 'item',
-        formatter: "{a} <br/>{b} : {c} ({d}%)"
+        formatter: "{b} <br/>{c} ({d}%)"
     },
     legend: {
         x : 'center',
-        data:['rose1','rose2','rose3','rose4','rose5','rose6','rose7','rose8'],
+        data:['Edge','IE','Safari','Chrome','Firefox','Opera'],
         bottom: '5',
         itemWidth: 16,
         itemHeight: 10
@@ -87,14 +87,12 @@ function getChartOption (
             radius : ['35%', '75%'],
             center: ['50%', '40%'],
             data:[
-                {value:10, name:'rose1'},
-                {value:5, name:'rose2'},
-                {value:15, name:'rose3'},
-                {value:25, name:'rose4'},
-                {value:20, name:'rose5'},
-                {value:35, name:'rose6'},
-                {value:30, name:'rose7'},
-                {value:40, name:'rose8'}
+                {value:102, name:'Edge'},
+                {value:53, name:'IE'},
+                {value:154, name:'Safari'},
+                {value:251, name:'Chrome'},
+                {value:207, name:'Firefox'},
+                {value:351, name:'Opera'}
             ]
         }
     ]

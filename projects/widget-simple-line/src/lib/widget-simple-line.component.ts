@@ -125,7 +125,7 @@ function getChartOption (mainColor: string,
         extraCssText: 'text-align:center;transform:translateX(-50%);z-index:10;'
     },
     series: [{
-        data: [45, 49, 36, 43, 62, 68, 69],
+        data: [26345, 43345,45459, 52785, 34670, 53671, 63469],
         type: 'line',
         smooth: true,
         symbol: 'circle',
