@@ -25,10 +25,31 @@ export class WidgetWeatherComponent extends WidgetBase {
     private http: HttpClient
   ) {
     super()
+    // if ("geolocation" in navigator) {
+    //   /* 地理位置服务可用 */
+    //   navigator.geolocation.getCurrentPosition(function(position) {
+    //     console.log(position.coords.latitude, position.coords.longitude);
+    //   }, err => console.error(err));
+    // } else {
+    //   /* 地理位置服务不可用 */
+    //   console.error('地理位置服务不可用')
+    // }
+    document.write('<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>')
+    // document.write('<script src="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js"></script>')
   }
 
   ngOnInit() {
-    this.renderData()
+    // this.renderData()
+    setTimeout(() => {
+      console.log(window['returnCitySN'])
+      let { cid, cname } = window['returnCitySN']
+      if((<string>cname).includes('省')) {
+        this.cityName = (<string>cname).match(/省\D+市/)[0].slice(1)
+      } else {
+        this.cityName = cname
+      }
+      this.renderData()
+    }, 1000);
   }
 
   onResized() { }
@@ -80,5 +101,4 @@ export class WidgetWeatherComponent extends WidgetBase {
 //     // }
 //     // catch (e) { alert(e.message) }
 //   }
-
 }
