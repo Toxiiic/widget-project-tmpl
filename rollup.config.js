@@ -10,12 +10,12 @@ export default {
     // input: './widget-aot-pkg-demo/widget-aot-pkg-demo.ngfactory.js',
     //input:'./dist/out-tsc/projects/widget-aot-pkg-demo/src/public-api.js',
     
-    // input: './out-tsc/lib/projects/widget-echarts/src/public-api.js',
-    // output: {
-    //     file: 'dist/widget-echarts.umd.js',
-    //     format: 'umd',
-    //      name:'widget-echarts'
-    // },
+    input: './out-tsc/lib/projects/widget-echarts/src/public-api.js',
+    output: {
+        file: 'dist/widget-echarts.umd.js',
+        format: 'umd',
+         name:'widget-echarts'
+    },
     
     // input: './out-tsc/lib/projects/widget-weather/src/public-api.js',
     // output: {
@@ -31,12 +31,12 @@ export default {
     //      name:'widget-personal-info'
     // },
 
-    input: './out-tsc/lib/projects/widget-common-functions/src/public-api.js',
-    output: {
-        file: 'dist/widget-common-functions.umd.js',
-        format: 'umd',
-         name:'widget-common-functions'
-    },
+    // input: './out-tsc/lib/projects/widget-common-functions/src/public-api.js',
+    // output: {
+    //     file: 'dist/widget-common-functions.umd.js',
+    //     format: 'umd',
+    //      name:'widget-common-functions'
+    // },
 
     // input: './out-tsc/lib/projects/widget-simple-line/src/public-api.js',
     // output: {
