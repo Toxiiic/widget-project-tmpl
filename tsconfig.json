@@ -66,6 +66,12 @@
       ],
       "number/*": [
         "dist/number/*"
+      ],
+      "widget-task": [
+        "dist/widget-task"
+      ],
+      "widget-task/*": [
+        "dist/widget-task/*"
       ]
     }
   },
