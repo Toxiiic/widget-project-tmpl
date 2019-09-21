@@ -18,3 +18,4 @@ import { ModalModule } from 'ngx-bootstrap/modal';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
