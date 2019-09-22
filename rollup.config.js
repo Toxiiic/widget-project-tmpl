@@ -17,48 +17,6 @@ export default {
          name:'widget-echarts'
     },
     
-    // input: './out-tsc/lib/projects/widget-weather/src/public-api.js',
-    // output: {
-    //     file: 'dist/widget-weather.umd.js',
-    //     format: 'umd',
-    //      name:'widget-weather'
-    // },
-
-    // input: './out-tsc/lib/projects/widget-personal-info/src/public-api.js',
-    // output: {
-    //     file: 'dist/widget-personal-info.umd.js',
-    //     format: 'umd',
-    //      name:'widget-personal-info'
-    // },
-
-    // input: './out-tsc/lib/projects/widget-common-functions/src/public-api.js',
-    // output: {
-    //     file: 'dist/widget-common-functions.umd.js',
-    //     format: 'umd',
-    //      name:'widget-common-functions'
-    // },
-
-    // input: './out-tsc/lib/projects/widget-simple-line/src/public-api.js',
-    // output: {
-    //     file: 'dist/widget-simple-line.umd.js',
-    //     format: 'umd',
-    //      name:'widget-simple-line'
-    // },
-    
-    // input: './out-tsc/lib/projects/widget-pie/src/public-api.js',
-    // output: {
-    //     file: 'dist/widget-pie.umd.js',
-    //     format: 'umd',
-    //      name:'widget-pie'
-    // },
-
-    // input: './out-tsc/lib/projects/number/src/public-api.js',
-    // output: {
-    //     file: 'dist/number.umd.js',
-    //     format: 'umd',
-    //      name:'number'
-    // },
-
     globals:{
         echarts:'echarts'
     },

@@ -24,54 +24,6 @@
       ],
       "widget-echarts/*": [
         "dist/widget-echarts/*"
-      ],
-      "widget-weather": [
-        "dist/widget-weather"
-      ],
-      "widget-weather/*": [
-        "dist/widget-weather/*"
-      ],
-      "widget-personal-info": [
-        "dist/widget-personal-info"
-      ],
-      "widget-personal-info/*": [
-        "dist/widget-personal-info/*"
-      ],
-      "widget-devkit": [
-        "dist/widget-devkit"
-      ],
-      "widget-devkit/*": [
-        "dist/widget-devkit/*"
-      ],
-      "widget-common-functions": [
-        "dist/widget-common-functions"
-      ],
-      "widget-common-functions/*": [
-        "dist/widget-common-functions/*"
-      ],
-      "widget-simple-line": [
-        "dist/widget-simple-line"
-      ],
-      "widget-simple-line/*": [
-        "dist/widget-simple-line/*"
-      ],
-      "widget-pie": [
-        "dist/widget-pie"
-      ],
-      "widget-pie/*": [
-        "dist/widget-pie/*"
-      ],
-      "number": [
-        "dist/number"
-      ],
-      "number/*": [
-        "dist/number/*"
-      ],
-      "widget-task": [
-        "dist/widget-task"
-      ],
-      "widget-task/*": [
-        "dist/widget-task/*"
       ]
     }
   },

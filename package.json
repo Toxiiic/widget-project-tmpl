@@ -13,13 +13,6 @@
     "rollup": "rollup --config rollup.config.js",
     "min": "uglifyjs ./dist/widget-echarts.umd.min.js",
     "terser": "terser ./dist/widget-echarts.umd.js -c -m -o ./dist/widget-echarts.umd.min.js",
-    "ngc:weather": "ngc -p ./projects/widget-weather/tsconfig.ngc.json",
-    "ngc:personal-info": "ngc -p ./projects/widget-personal-info/tsconfig.ngc.json",
-    "ngc:cf": " ngc -p ./projects/widget-common-functions/tsconfig.ngc.json",
-    "scss:cf": "sass ./projects/widget-common-functions/src/lib/cf-setting/cf-setting.component.scss ./projects/widget-common-functions/src/lib/cf-setting/cf-setting.component.css",
-    "ngc:simple-line": "ngc -p ./projects/widget-simple-line/tsconfig.ngc.json",
-    "ngc:pie": "ngc -p ./projects/widget-pie/tsconfig.ngc.json",
-    "ngc:number": "ngc -p ./projects/number/tsconfig.ngc.json"
   },
   "private": true,
   "dependencies": {
