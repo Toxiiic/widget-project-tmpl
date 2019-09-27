@@ -12,7 +12,7 @@
     "ngc:echarts": "ngc -p ./projects/widget-echarts/tsconfig.ngc.json",
     "rollup": "rollup --config rollup.config.js",
     "min": "uglifyjs ./dist/widget-echarts.umd.min.js",
-    "terser": "terser ./dist/widget-echarts.umd.js -c -m -o ./dist/widget-echarts.umd.min.js",
+    "terser": "terser ./dist/widget-echarts.umd.js -c -m -o ./dist/widget-echarts.umd.min.js"
   },
   "private": true,
   "dependencies": {

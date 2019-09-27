@@ -6,50 +6,52 @@ import commonjs from 'rollup-plugin-commonjs';
 // import { uglify } from "rollup-plugin-uglify";
 import uglify from "rollup-plugin-uglify-es";
 
-export default {
+export default function (commandLineArgs) {
+    let widgetName = commandLineArgs.configWidgetName
     // input: './widget-aot-pkg-demo/widget-aot-pkg-demo.ngfactory.js',
     //input:'./dist/out-tsc/projects/widget-aot-pkg-demo/src/public-api.js',
-    
-    input: './out-tsc/lib/projects/widget-echarts/src/public-api.js',
-    output: {
-        file: 'dist/widget-echarts.umd.js',
-        format: 'umd',
-         name:'widget-echarts'
-    },
-    
-    globals:{
-        echarts:'echarts'
-    },
-    plugins: [
-        resolve({
-            // pass custom options to the resolve plugin
-            // customResolveOptions: {
-            //     moduleDirectory: '../../node_modules'
-            // }
-        }),
-        commonjs(),
+    return {
+        input: `./out-tsc/lib/projects/${widgetName}/src/public-api.js`,
+        output: {
+            file: 'dist/main.umd.js',
+            format: 'umd',
+            name: widgetName
+        },
         
-        // graph(graphOptions)
-        // typescript({
-        //     typescript: require('typescript')
-        // })
-        // uglify(),
-    ],
-    external: [
-        // 'plugins-core',
-        '@angular/core',
-        "@angular/common",
-        "@angular/common/http",
-        '@angular/forms',
-        '@angular/platform-browser',
-        '@angular/platform-browser/animations',
-        '@angular/animations',
-        "@angular/animations/browser",
-        'ngx-bootstrap/modal',
-        'ngx-bootstrap/accordion',
-        "ngx-bootstrap/collapse",
-        '@toxiic/widget-devkit',
-        'echarts',
-        // '../../../../node_modules/@toxiic/widget-devkit/widget-manifest.ngfactory'
-    ]
+        globals:{
+            echarts:'echarts'
+        },
+        plugins: [
+            resolve({
+                // pass custom options to the resolve plugin
+                // customResolveOptions: {
+                //     moduleDirectory: '../../node_modules'
+                // }
+            }),
+            commonjs(),
+            
+            // graph(graphOptions)
+            // typescript({
+            //     typescript: require('typescript')
+            // })
+            // uglify(),
+        ],
+        external: [
+            // 'plugins-core',
+            '@angular/core',
+            "@angular/common",
+            "@angular/common/http",
+            '@angular/forms',
+            '@angular/platform-browser',
+            '@angular/platform-browser/animations',
+            '@angular/animations',
+            "@angular/animations/browser",
+            'ngx-bootstrap/modal',
+            'ngx-bootstrap/accordion',
+            "ngx-bootstrap/collapse",
+            '@toxiic/widget-devkit',
+            'echarts',
+            // '../../../../node_modules/@toxiic/widget-devkit/widget-manifest.ngfactory'
+        ]
+    }
 }
