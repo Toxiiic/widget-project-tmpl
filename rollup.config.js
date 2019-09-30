@@ -13,7 +13,7 @@ export default function (commandLineArgs) {
     return {
         input: `./out-tsc/lib/projects/${widgetName}/src/public-api.js`,
         output: {
-            file: 'dist/main.umd.js',
+            file: `./projects/${widgetName}/release/main.js`,
             format: 'umd',
             name: widgetName
         },
