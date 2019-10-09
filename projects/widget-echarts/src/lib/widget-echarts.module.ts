@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { WidgetEchartsComponent } from './widget-echarts.component';
-import { WidgetTitleBarModule } from '@toxiic/widget-devkit';
+import { WidgetTitleBarModule } from '@gspwidget/widget-devkit';
 
 @NgModule({
   declarations: [WidgetEchartsComponent],

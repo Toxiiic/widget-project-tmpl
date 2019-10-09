@@ -49,9 +49,9 @@ export default function (commandLineArgs) {
             'ngx-bootstrap/modal',
             'ngx-bootstrap/accordion',
             "ngx-bootstrap/collapse",
-            '@toxiic/widget-devkit',
+            '@gspwidget/widget-devkit',
             'echarts',
-            // '../../../../node_modules/@toxiic/widget-devkit/widget-manifest.ngfactory'
+            // '../../../../node_modules/@gspwidget/widget-devkit/widget-manifest.ngfactory'
         ]
     }
 }
