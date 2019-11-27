@@ -24,7 +24,7 @@
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
-    "@gspwidget/widget-devkit": "0.0.1",
+    "@gspwidget/widget-devkit": "latest",
     "awesome-typescript-loader": "^5.2.1",
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
