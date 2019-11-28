@@ -10,3 +10,13 @@
     <p>下方可预览到当前元部件总项目的所有元部件。</p>
   </div>
 </div>
+
+<div class="widget-container-debug" *ngFor="let widget of widgets">
+  <lib-widget-container #wc
+    (triggerLoadData)="handleTriggerLoadData(wc, widget, $event)"
+    [mode]="1"
+    [widgetInfo]="widget.widgetInfo"
+    [propValues]="widget.propValues"
+    >
+  </lib-widget-container>
+</div>

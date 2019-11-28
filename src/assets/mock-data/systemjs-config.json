@@ -1,0 +1,12 @@
+{
+    "paths": {
+        "npm:": "/node_modules/",
+        "plugins:": "assets/plugins/"
+    },
+    "map": {
+        "chart.js": "plugins:Chart.bundle.min.js",
+        "echarts":"plugins:echarts/echarts.min.js"
+    },
+    "packages": {
+    }
+}
