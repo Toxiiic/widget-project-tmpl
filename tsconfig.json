@@ -24,6 +24,12 @@
       ],
       "widget-echarts/*": [
         "dist/widget-echarts/*"
+      ],
+      "a": [
+        "dist/a"
+      ],
+      "a/*": [
+        "dist/a/*"
       ]
     }
   },

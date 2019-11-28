@@ -51,7 +51,8 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "./node_modules/echarts/dist/echarts.min.js"
+              "./node_modules/echarts/dist/echarts.min.js",
+              "node_modules/systemjs/dist/system.js"
             ],
             "es5BrowserSupport": true
           },
@@ -185,6 +186,41 @@
             "tsConfig": [
               "projects/widget-echarts/tsconfig.lib.json",
               "projects/widget-echarts/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "a": {
+      "root": "projects/a",
+      "sourceRoot": "projects/a/src",
+      "projectType": "library",
+      "prefix": "eg",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/a/tsconfig.lib.json",
+            "project": "projects/a/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/a/src/test.ts",
+            "tsConfig": "projects/a/tsconfig.spec.json",
+            "karmaConfig": "projects/a/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/a/tsconfig.lib.json",
+              "projects/a/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
