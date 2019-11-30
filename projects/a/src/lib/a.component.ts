@@ -51,7 +51,7 @@ export class AComponent extends WidgetBase {
   }]
 
   // 全局跳转
-  @Property(CommonPropertyOptions.jump) jumpProperty
+  // @Property(CommonPropertyOptions.jump) jumpProperty
 
 
   chartInstance: echarts.ECharts;
