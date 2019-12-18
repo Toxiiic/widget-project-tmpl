@@ -13,9 +13,7 @@
             "cols": 4,
             "rows": 4,
             "minCols": 0,
-            "minRows": 0,
-            "maxCols": 24,
-            "maxRows": 24
+            "minRows": 0
         },
         "other": {
         }

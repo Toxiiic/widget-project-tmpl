@@ -21,20 +21,30 @@ export class AComponent extends WidgetBase {
   @Property({
     type: PropertyTypes.Bool,
     displayName: '平滑',
-    category: '样式'
-  }) smooth: boolean = false
+    category: '样式',
+    boolOption: {
+      default: false
+    }
+  }) smooth: boolean
 
   @Property({
     category: '数据',
     displayName: 'X轴',
-  }) xField: string = 'month'
+    textOption: {
+      default: 'month'
+    }
+  }) xField: string
 
   @Property({
     type: PropertyTypes.Object,
     isArray: true,
     displayName: 'Y轴',
     objectOption: {
-      default: [], // TODO: 默认值没有限制是否是数组
+      default: [{
+        valueField: 'totalSale', color: '#1f9cfe'
+      }, {
+        valueField: 'lastYear', color: '#ff7ccd'
+      }],
       objPropertyOptions: [{
         name: 'valueField',
         type: PropertyTypes.Text
@@ -44,11 +54,7 @@ export class AComponent extends WidgetBase {
       }]
     },
     category: '数据'
-  }) yFieldObjs: { valueField: string, color: string }[] = [{
-    valueField: 'totalSale', color: '#1f9cfe'
-  }, {
-    valueField: 'lastYear', color: '#ff7ccd'
-  }]
+  }) yFieldObjs: { valueField: string, color: string }[]
 
   // 全局跳转
   // @Property(CommonPropertyOptions.jump) jumpProperty
@@ -57,7 +63,7 @@ export class AComponent extends WidgetBase {
   chartInstance: echarts.ECharts;
   data: any[]
   @ViewChild("chart") chartContainer:ElementRef;
-  
+
   constructor() {
     super()
   }
@@ -77,9 +83,9 @@ export class AComponent extends WidgetBase {
     this.data = data
     this.render()
   }
-  onPropertyChange () {
+  onPropertyChange (propName, value) {
     // 若 dimensions 中过有空串，echarts 从此之后会一直报错不听使唤
-    this.yFieldObjs = this.yFieldObjs.filter(c=>!!c.valueField)
+    if(propName === 'yFieldObjs') this.yFieldObjs = this.yFieldObjs.filter(c=>!!c.valueField)
     this.render()
   }
 
