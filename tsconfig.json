@@ -30,6 +30,12 @@
       ],
       "a/*": [
         "dist/a/*"
+      ],
+      "widget-line": [
+        "dist/widget-line"
+      ],
+      "widget-line/*": [
+        "dist/widget-line/*"
       ]
     }
   },

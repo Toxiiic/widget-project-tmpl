@@ -1,5 +1,5 @@
 {
-	"name": "a",
+	"name": "widget-line",
     "displayName": "",
     "desc": "",
     "version": "0.0.1",
@@ -13,7 +13,9 @@
             "cols": 4,
             "rows": 4,
             "minCols": 0,
-            "minRows": 0
+            "minRows": 0,
+            "maxCols": 24,
+            "maxRows": 24
         },
         "other": {
         }

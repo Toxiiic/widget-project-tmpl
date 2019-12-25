@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { AComponent } from 'projects/a/src/public-api';
 import { of } from 'rxjs';
+import { WidgetLineComponent } from 'projects/widget-line/src/public-api';
 
 // TODO: 为了让老数据源写法的 charts 类元部件能够加载到数据，暂时的解决。后期换为 dataEngine 方式
 window['DashboardApi'] = {
@@ -26,6 +26,6 @@ window['DashboardApi'] = {
 })
 export class AppComponent {
   widgetComponents = [
-    AComponent
+    WidgetLineComponent
   ]
 }

@@ -3,9 +3,9 @@ import "echarts";
 import * as echarts from 'echarts';
 import { Widget, WidgetBase, Property, PropertyTypes, CommonPropertyOptions, EchartsOptions } from '@gspwidget/widget-devkit';
 
-@Widget({name:"a"})
+@Widget({name:"widget-line"})
 @Component({
-  selector: 'a',
+  selector: 'widget-line',
   template: `
   <div class="d-flex flex-column h-100">
     <lib-widget-title-bar
@@ -17,7 +17,7 @@ import { Widget, WidgetBase, Property, PropertyTypes, CommonPropertyOptions, Ech
   `,
   styles: []
 })
-export class AComponent extends WidgetBase {
+export class WidgetLineComponent extends WidgetBase {
   @Property({
     type: PropertyTypes.Bool,
     displayName: '平滑',
@@ -57,7 +57,7 @@ export class AComponent extends WidgetBase {
   }) yFieldObjs: { valueField: string, color: string }[]
 
   // 全局跳转
-  // @Property(CommonPropertyOptions.jump) jumpProperty
+  @Property(CommonPropertyOptions.jump) jumpProperty
 
 
   chartInstance: echarts.ECharts;

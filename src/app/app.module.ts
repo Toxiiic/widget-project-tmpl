@@ -6,15 +6,15 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { WidgetCoreModule } from '@gspwidget/widget-core'
 
 import { AppComponent } from './app.component';
-import { AModule } from 'projects/a/src/public-api';
-import { AComponent } from 'projects/a/src/public-api';
+import { WidgetLineModule } from 'projects/widget-line/src/public-api';
+import { WidgetLineComponent } from 'projects/widget-line/src/public-api';
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
   entryComponents: [
-    AComponent
+    WidgetLineComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +22,7 @@ import { AComponent } from 'projects/a/src/public-api';
     ModalModule.forRoot(),
     WidgetCoreModule,
     HttpClientModule,
-    AModule
+    WidgetLineModule
   ],
   providers: [
   ],
