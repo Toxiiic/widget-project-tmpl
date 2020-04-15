@@ -51,6 +51,7 @@ export default function (commandLineArgs) {
             "ngx-bootstrap/collapse",
             '@gspwidget/widget-devkit',
             'echarts',
+            '@ngx-translate/core'
             // '../../../../node_modules/@gspwidget/widget-devkit/widget-manifest.ngfactory'
         ]
     }
