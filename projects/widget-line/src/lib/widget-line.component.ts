@@ -1,9 +1,12 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
-import "echarts";
+import { Component, ViewChild, ElementRef, ChangeDetectorRef, AfterViewInit, OnInit } from '@angular/core';
+import 'echarts';
 import * as echarts from 'echarts';
-import { Widget, WidgetBase, Property, PropertyTypes, CommonPropertyOptions, EchartsOptions } from '@gspwidget/widget-devkit';
+import { Widget, WidgetBase, Property, PropertyTypes,
+  WidgetDataService } from '@gspwidget/widget-devkit';
 
-@Widget({name:"widget-line"})
+@Widget({
+  name: 'widget-line'
+})
 @Component({
   selector: 'widget-line',
   template: `
@@ -17,7 +20,7 @@ import { Widget, WidgetBase, Property, PropertyTypes, CommonPropertyOptions, Ech
   `,
   styles: []
 })
-export class WidgetLineComponent extends WidgetBase {
+export class WidgetLineComponent extends WidgetBase implements OnInit, AfterViewInit {
   @Property({
     type: PropertyTypes.Bool,
     displayName: '平滑',
@@ -56,44 +59,41 @@ export class WidgetLineComponent extends WidgetBase {
     category: '数据'
   }) yFieldObjs: { valueField: string, color: string }[]
 
-  // 全局跳转
-  @Property(CommonPropertyOptions.jump) jumpProperty
-
-
   chartInstance: echarts.ECharts;
   data: any[]
-  @ViewChild("chart") chartContainer:ElementRef;
+  @ViewChild('chart') chartContainer: ElementRef
 
-  constructor() {
+  constructor (
+    private cd: ChangeDetectorRef,
+    private dataService: WidgetDataService
+  ) {
     super()
   }
 
-  ngOnInit() {
+  ngOnInit () {
     this.chartInstance = echarts.init(this.chartContainer.nativeElement)
-    this.render()
+    this.dataService.loadData().subscribe(data => {
+      this.data = data
+      this.render()
+    })
   }
-  ngAfterViewInit() {
+  ngAfterViewInit () {
     this.chartInstance.resize();
   }
-  onResized(){
+  onResized () {
     this.chartInstance.resize();
-  }
-  onGetData (data) {
-    console.log('on get data!!', data)
-    this.data = data
-    this.render()
   }
   onPropertyChange (propName, value) {
     // 若 dimensions 中过有空串，echarts 从此之后会一直报错不听使唤
-    if(propName === 'yFieldObjs') this.yFieldObjs = this.yFieldObjs.filter(c=>!!c.valueField)
+    if (propName === 'yFieldObjs') this.yFieldObjs = this.yFieldObjs.filter(c => !!c.valueField)
     this.render()
   }
 
   render () {
-    if(!this.data || !this.chartInstance) return
+    if (!this.data || !this.chartInstance) return
     this.chartInstance.setOption({
       dataset: {
-        dimensions: [this.xField, ...this.yFieldObjs.map(yField=>yField.valueField)],
+        dimensions: [this.xField, ...this.yFieldObjs.map(yField => yField.valueField)],
         source: this.data
       },
       legend: {
@@ -125,7 +125,7 @@ export class WidgetLineComponent extends WidgetBase {
       tooltip: {
         trigger: 'axis'
       },
-      series: this.yFieldObjs.map(yField=>{
+      series: this.yFieldObjs.map(yField => {
         return {
           type: 'line',
           smooth: this.smooth,
@@ -155,5 +155,6 @@ export class WidgetLineComponent extends WidgetBase {
         color: 'gray'
       }
     } as echarts.EChartOption)
+    this.cd.markForCheck()
   }
 }
