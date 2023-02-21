@@ -1,12 +1,244 @@
 @import './style/common';
 @import url('https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.min.css');
 
-body {
-    font-family: "PingFangSC-Regular", "PingFang SC";
+/* 复制以下代码，修改为元部件名，可调整元部件开发时预览尺寸 */
+.widget-container-debug.widget-line {
+  width: 800px !important;
+  height: 300px !important;
+}
+.widget-container-debug.your-widget {
+  width: 800px !important;
+  height: 300px !important;
 }
 
 
+/* font */
+@font-face {
+  font-family: "oswald";
+  /* src: url('assets/fonts/Oswald-Regular.ttf'); */
+  src: url('./assets/fonts/Oswald-Regular.ttf');
+}
+
+/* theme */
+$themeColor: #388fff;
+$themeBgColor: white;
+
+:root {
+  --eppThemeColor: #{$themeColor};
+}
+.theme-color {
+  color: $themeColor!important;
+}
+.theme-bg {
+  background: $themeColor!important;
+  color: $themeBgColor!important;
+}
+.theme-color-hover:hover {
+  cursor: pointer;
+  color: $themeColor!important;
+}
+.theme-color-bg:hover {
+  cursor: pointer;
+  background: $themeColor!important;
+  color: $themeBgColor!important;
+}
+
+:root {
+  /* 主题色的 r, g, b 三个值，中间用逗号分开，用于调节 alpha 值 */
+  --primary-rgb: 56, 143, 255;
+  /* 首页右上角按钮的渐变背景色。若无效，会自动用主题色纯色 */
+  --page-switch-btn-bg: linear-gradient(225deg, rgba(58, 152, 255, 1) 0%, rgba(9, 113, 255, 1) 100%);
+
+  /* 主题色 */
+  /* Th01：文字按钮点击色、线性页签点击文字色 */
+  --f-theme-01: #0E6DED;
+  /* Th02：主要边框按钮点击背景色、次要边框按钮点击边框/文字/图标色、文字按钮点击文字/图标色、图标按钮点击色、输入框点击边框色（Th01） */
+  --f-theme-02: linear-gradient(135deg, #0E6DED 0%, #1B75EF 100%);
+  /* Th03：文字按钮默认色、线性页签选中文字色 */
+  --f-theme-03: #2A87FF;
+  /* Th04：主要边框按钮默认背景色、组合按钮选中背景色、线性页签选中文字/下划线色、步骤条进行中色、表单一级标题竖线色（Th03） */
+  --f-theme-04: linear-gradient(135deg, #2A87FF 0%, #328BFF 100%);
+  /*  Th05：文字按钮滑过色、线性页签滑过文字色 */
+  --f-theme-05: #529DFF;
+  /* Th06：主要边框按钮滑过背景色、次要边框按钮滑过边框/文字/图标色、文字按钮滑过文字/图标色、图标按钮滑过色、输入框滑过边框色、线性页签滑过文字色、单选/复选滑 */
+  /* 过边框色、步骤条已完成色（Th05） */
+  --f-theme-06: linear-gradient(135deg, #529DFF 0%, #559FFF 100%);
+  /* Th07：单选/复选框选中色 */
+  --f-theme-07: linear-gradient(214deg, #3F65FF 0%, #4D9AFF 100%);
+  /* Th08：输入框鼠标滑过/点击边框色 */
+  --f-theme-08: rgb(122, 127, 145);
+  /* Th09：引导类提示背景色 */
+  --f-theme-09: linear-gradient(46deg, #2E77FF 0%, #2A87FF 100%);
+  /* Th10：表单分组标题文字色 */
+  --f-theme-10: #2A62AB;
+  /*  Th11：页内导航背景色 */
+  --f-theme-11: --f-theme-04;
+  /*  Th12：胶囊页签选中页签投影 */
+  --f-theme-12: --f-theme-04;
+  /* Th13：高级筛选方案标题背景色 */
+  --f-theme-13: linear-gradient(135deg, rgba(#2A87FF, 0.1) 0%, rgba(#328BFF, 0.1) 100%);
+  /* 引导三角背景色 */
+  --f-theme-more-02: #2E77FF;
+
+  /*辅助色 —— 辅助色选择不同明度的主题色，表现界面的层次感。 */
+  /* Au01：表格选中行下划线色 */
+  --f-aid-01: #95BEF1;
+  /* Au02：下拉弹层、表格、树表、穿梭框等  点击/选中色 */
+  --f-aid-02: #DBE9FF;
+  /* Au03：下拉弹层、表格、树表、穿梭框等滑过色 */
+  --f-aid-03: #E8F2FF; 
+  /* Au04：分页器按钮选中背景色 */
+  --f-aid-04: #EFF5FF;
+  /* Au05：轻量筛选选中值后标签色 */
+  --f-aid-05: #CFEDFF;
+  /* Au06：框架底色 */
+  --f-aid-06: #EFF2F4;
+  /* Au07：合计行背景色  */
+  --f-aid-07: linear-gradient(195deg, #FFFBEB 0%, #EFF8F8 100%);
+  /* 表单分组边框色 */
+  --f-aid-08: #F0F6FF;
+  /* 表单分组背景色 */
+  --f-aid-09: #F7FAFF;
+  /* 滚动监听-选中时，当前颜色 */
+  --f-aid-10: #95C3FF;
+
+
+  /* 点缀色 —— 点缀色采用高纯度的邻近色和互补色，表现界面的韵律感和细节。 */
+  /* Or01：查询报表类标题图标色、表单单标题小竖线色 */
+  --f-ornament-01: linear-gradient(135deg, #FC8249 0%, #FE9539 100%);
+  /* Or02：单据类标题图标色 */
+  --f-ornament-02: linear-gradient(135deg, #4EC87A 0%, #52D389 100%);
+  /* Or03：管理类标题图标色、表单单标题小竖线色 */
+  --f-ornament-03: linear-gradient(135deg, #1FC8DC 0%, #41D2BD 100%);
+  /* Or04：表单单标题小竖线色 */
+  --f-ornament-04: linear-gradient(135deg, #4190FF 0%, #657CFF 100%);
+  /* Or05：字典类标题图标色、表单单标题小竖线色 */
+  --f-ornament-05: linear-gradient(135deg, #8B82FF 0%, #A082FF 100%);
+
+  /* 中性色——中性色选择不同明度的灰色，表现界面的区块及边界。 */
+  /* 分页背景色、次要按钮背景色、表格背景色、Switch选中背景色 */
+  /* 侧边栏内容区背景色 */
+  --f-neutral-00: #fff;
+  /* Ne01：Tooltips文字提示背景 */
+  --f-neutral-01: #303C53;
+  /* Ne02：线性输入框默认态边框色，特殊：输入框在编辑态下只有下边线的边框色（项目不使用四条边线输入框，使用单线输入框） */
+  --f-neutral-02: #AEB5C6;
+  /* Ne03：滚动条滑过/点击背景色、输入控件清空按钮颜色 */
+  --f-neutral-03: #CCD1DD;
+  /* Ne04：输入框默认态边框色、单选/复选默认态边框色、开关按钮未选中默认态背景色、滚动条默认背景色 */
+  --f-neutral-04: #D9DEE7;
+  /* Ne05：边框按钮禁用态边框色、输入框禁用态边框色、单选/复选禁用态边框色、虚线分割线 */
+  --f-neutral-05: #DEE4ED;
+  /* Ne06：筛选项边框色、输入框展示态下划线色、元素间分割线 */
+  --f-neutral-06: #E6E9F0;
+  /* Ne07：表格奇偶行分割线色、表格轮廓色、轻量筛选标签鼠标滑过边框色（New） */
+  --f-neutral-07: #E9ECF3;
+  /* Ne08：边框按钮默认态边框色、边框按钮禁用态背景色 */
+  --f-neutral-08: #E8EBF2;
+  /* Ne09：表格表头背景色、标签背景色 */
+  --f-neutral-09: #F1F3F7;
+  /* Ne10：输入框禁用态背景色、下拉菜单选中行背景色、 */
+  --f-neutral-10: #F5F6F9;
+  /* Ne11：表格奇数行背景色、下拉菜单鼠标滑过背景色、表单特殊格式输入框前缀/后缀背景色、轻量筛选标签鼠标滑过背景色（New） */
+  --f-neutral-11: #F7F8FB;
+  /* Ne12：次要按钮背景色、内容区背景色 */
+  --f-neutral-12: #FFFFFF;
+  /* Ne13：表格表头与表体分割线 */
+  --f-neutral-13: #E4E7EF;
+  /* Ne14：表格、树表禁用行背景色 */
+  --f-neutral-14: #FAFAFC;
+  /* Ne15：次要按钮投影色 */
+  --f-neutral-15: #1F2329;
+  /* Ne16：卡片容器投影色 */
+  --f-neutral-16: #013364;
+  /* Ne17：下拉选择器、日期/时间选择器、对话框、抽屉、通知提醒框投影色 */
+  --f-neutral-17: #031233;
+  /* Ne18：一级卡片容器背景色 */
+  --f-neutral-18: rgba(255,255,255,0.7);
+  /* Ne19：二级卡片容器背景色 */
+  --f-neutral-19: rgba(255,255,255,0.85);
+  /* Ne20：下拉菜单弹层背景色、消息提醒背景色 */
+  --f-neutral-20: #ffffff;
+  /* Ne21：表格操作列更多图标按钮背景色（Au03） */
+  --f-neutral-21: #334052;
+
+  /* 文字色 */
+  /* 分页Active文字颜色、主要按钮文字颜色 */
+  --f-text-00: #fff;
+  /* Te01：表单标题文字色 */
+  --f-text-01: #000;
+  /* T02：通用文字 */
+  --f-text-02: #2D2F33;
+  /* Te03：表格内容文字色、图标按钮默认色 */
+  --f-text-03: #424347;
+  /* Te04：表单展示态标签文字、表格表头文字、筛选项标签文字 */
+  --f-text-04: #5A5E66;
+  /* Te05：Onepage未选中文字色、Tabs页签未选中文字色 */
+  --f-text-05: #6080AD;
+  /* Te06：消息弹窗详情文字色 */
+  --f-text-06: #747B8B;
+  /* Te07：按钮禁用态文字、输入框禁用态文字、表单/Listview图标按钮默认色 */
+  --f-text-07: #848C9A;
+  /* Te08：面性图标按钮点击色、自动完成建议分组文字色、Listview辅助文字 */
+  --f-text-08: #A8ADB8;
+  /* Te09：说明文字、线性图标按钮禁用色、输入控件Placeholder */
+  --f-text-09: #B4BCCC;
+  /* Te10：面性按钮默认色 */
+  --f-text-10: #C7CFDD;
+  /* Te11：主要边框按钮文字/图标色 */
+  --f-text-11: #ffffff;
+  /* Te12面性次要按钮背景色（附件组件隐藏、删除图标按钮） */
+  --f-text-12: #C7D4EE;    
+  /* Te13：Tooltips文字提示文字色 */
+  --f-text-13: rgba(255,255,255,0.85);
+
+  /* 语义色 */
+  /* 常规文字提示色 */
+  --f-semantic-info-01: #4D9AFF;
+  /* 边框色 */
+  --f-semantic-info-02: #AED1FF;
+  /* 背景色 */
+  --f-semantic-info-03: #EEF5FF;
+  /* 提示边线 */
+  --f-semantic-info-04: linear-gradient(135deg, #657CFF 0%, #4190FF 100%);
+
+
+  /* 提交状态提示色 */
+  --f-semantic-submit-01: #62CBCD;
+  --f-semantic-submit-02: #A7E0E1;
+  --f-semantic-submit-03: #F3FBFB;
+  /* 提示边线 */
+  --f-semantic-submit-04: linear-gradient(135deg, #12BFD3 0%, #41D5B9 100%);
+
+  /* 成功文字提示色 */
+  --f-semantic-success-01: #6CC77F;
+  --f-semantic-success-02: #B5E3BF;
+  --f-semantic-success-03: #F0FAF4;
+  /* 提示边线 */
+  --f-semantic-success-04: linear-gradient(135deg, #3CA78D 0%, #7BCA8B 100%);
+
+  /* 警告文字提示色 */
+  --f-semantic-warning-01: #F5A144;
+  --f-semantic-warning-02: #FAD0A1;
+  --f-semantic-warning-03: #FEF5EC;
+  /* 提示边线 */
+  --f-semantic-warning-04: linear-gradient(135deg, #FC8249 0%, #FE9539 100%);
+  /*收藏颜色 */
+  --f-semantic-warning-06: #F7B500;
+
+  /* 失败、错误提示色 */
+  --f-semantic-danger-01: #F46160;
+  --f-semantic-danger-02: #F9B0AF;
+  --f-semantic-danger-03: #FDEFEF;
+  /* 提示边线 */
+  --f-semantic-danger-04: linear-gradient(135deg, #E55875 0%, #FF7878 100%);
+
+  /* 遮罩层 */
+  --f-mask-bg: rgba(0, 0, 0, 0.45);
+
+}
+
+/* patch */
 .widget-container-debug.overflow-hidden {
   overflow: visible!important;
 }
-
