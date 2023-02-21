@@ -12,7 +12,8 @@
     "ngc:echarts": "ngc -p ./projects/widget-echarts/tsconfig.ngc.json",
     "rollup": "rollup --config rollup.config.js",
     "min": "uglifyjs ./dist/widget-echarts.umd.min.js",
-    "terser": "terser ./dist/widget-echarts.umd.js -c -m -o ./dist/widget-echarts.umd.min.js"
+    "terser": "terser ./dist/widget-echarts.umd.js -c -m -o ./dist/widget-echarts.umd.min.js",
+    "update-gspwidget": "npm i @gspwidget/util@latest @gspwidget/common@latest @gspwidget/widget-core@latest @gspwidget/widget-devkit@latest"
   },
   "private": true,
   "dependencies": {
@@ -43,7 +44,11 @@
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26",
     "crypto-js": "^4.0.0",
-    "date-fns": "^2.23.0"
+    "date-fns": "^2.23.0",
+    "ngx-monaco-editor": "^8.1.1",
+    "@gspwidget/portlet": "^1.6.0",
+    "jexl": "^2.3.0",
+    "lodash-es": "^4.17.21",
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.13.0",
