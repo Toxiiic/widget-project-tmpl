@@ -7,6 +7,7 @@ import { WidgetCoreModule } from '@gspwidget/widget-core';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { DashboardCommonModule } from '@gspwidget/common';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { WidgetLineModule } from 'projects/widget-line/src/public-api';
