@@ -22,6 +22,7 @@ import { WidgetLineComponent } from 'projects/widget-line/src/public-api';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    RouterModule.forRoot([]),
     ModalModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
