@@ -39,10 +39,6 @@
       ]
     }
   },
-  "include": [
-    "src",
-    "node_modules/ngx-monaco-editor/monaco.d.ts"
-  ],
   "exclude": [
     "out-tsc",
     "dist"
